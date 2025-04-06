@@ -6,7 +6,7 @@ import Footer from "../../components/footer/Footer";
 import type { Metadata } from "next";
 import "../../styles/globals.css";
 
-// import CustomCursor from '@/components/utils/CustomCursor/CustomCursor'; 
+import CustomCursor from '@/components/utils/CustomCursor/CustomCursor'; 
 
 import {notFound} from 'next/navigation';
 import FirstVisitAnimation from '@/components/utils/animations/FirstVisitAnimation';
@@ -50,7 +50,7 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
           <SmoothScroll />
-          {/* <CustomCursor /> */}
+          <CustomCursor />
           <ScrollToTop />
           <FirstVisitAnimation />
           <div className="flex flex-col min-h-screen">
