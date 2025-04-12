@@ -7,7 +7,7 @@ import { Link } from '@/i18n/routing';
 import { getTranslations } from 'next-intl/server';
 
 import { FaRegCalendar } from 'react-icons/fa';
-import { FaFacebook } from "react-icons/fa6";
+import { BsFacebook } from "react-icons/bs";
 import { FaCalendarDays } from "react-icons/fa6";
 import { BsCircleFill } from 'react-icons/bs';
 import { IoIosInformationCircle } from "react-icons/io";
@@ -256,7 +256,7 @@ export default async function EventPage(props: any) {
                     {/* Social share buttons */}
                     <button className="p-2 bg-blue-100 text-blue-600 rounded-full hover:bg-blue-200 select-none" draggable="false">
                       <a href="https://www.facebook.com/sharer/sharer.php" target="_blank" rel="noreferrer">
-                        <FaFacebook className="w-5 h-5"/>
+                        <BsFacebook className="w-5 h-5"/>
                       </a>
                     </button>
                     <button className="p-2 bg-blue-100 text-blue-600 rounded-full hover:bg-blue-200 select-none" draggable="false">
