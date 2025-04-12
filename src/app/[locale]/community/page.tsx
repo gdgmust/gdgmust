@@ -11,6 +11,18 @@ import { IoMenu } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
 
 import "@/styles/globals.css";
+
+export async function generateMetadata(props: any) {
+  return {
+    title: "Community",
+    description: "Join our community and connect with like-minded individuals",
+    openGraph: {
+      title: "Community",
+      description: "Join our community and connect with like-minded individuals",
+      // images: event.image ? [event.image] : [],
+    },
+  };
+}
  
 export default function CommunityPage() {
   const t = useTranslations();

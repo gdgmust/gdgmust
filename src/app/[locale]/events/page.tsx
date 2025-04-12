@@ -6,6 +6,19 @@ import { getTranslations } from 'next-intl/server';
 
 const ITEMS_PER_PAGE = 9;
 
+
+export async function generateMetadata(props: any) {
+  return {
+    title: "Events",
+    description: "Discover upcoming and past events",
+    openGraph: {
+      title: "Events",
+      description: "Discover upcoming and past events",
+      // images: event.image ? [event.image] : [],
+    },
+  };
+}
+
 export default async function EventsPage({
   searchParams,
 }: {
