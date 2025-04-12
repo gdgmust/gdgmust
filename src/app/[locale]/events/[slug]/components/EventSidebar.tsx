@@ -1,3 +1,5 @@
+'use client';
+
 import { FaRegCalendar, FaLinkedinIn } from 'react-icons/fa';
 import { BsCircleFill } from 'react-icons/bs';
 // import { BsFacebook } from "react-icons/bs";
