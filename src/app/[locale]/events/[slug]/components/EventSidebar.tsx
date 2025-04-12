@@ -1,6 +1,6 @@
-import { FaRegCalendar } from 'react-icons/fa';
+import { FaRegCalendar, FaLinkedinIn } from 'react-icons/fa';
 import { BsCircleFill } from 'react-icons/bs';
-import { BsFacebook } from "react-icons/bs";
+// import { BsFacebook } from "react-icons/bs";
 import { FaXTwitter } from "react-icons/fa6";
 
 interface EventSidebarProps {
@@ -93,8 +93,8 @@ export default function EventSidebar({ event, registerText }: EventSidebarProps)
             <p className="text-sm text-gray-600 mb-3 select-none">Share this event</p>
             <div className="flex space-x-3">
               {/* Social share buttons */}
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.gdgmust.dev/en/events" target="_blank" rel="noreferrer" className="p-2 bg-blue-100 text-blue-600 rounded-full hover:bg-blue-200 select-none" draggable="false">
-                  <BsFacebook className="w-5 h-5"/>
+                <a href="https://www.linkedin.com/shareArticle?url=https://www.gdgmust.dev/en/events" target="_blank" rel="noreferrer" className="p-2 bg-blue-100 text-blue-600 rounded-full hover:bg-blue-200 select-none" draggable="false">
+                  <FaLinkedinIn className="w-5 h-5"/>
                 </a>
                 <a href="https://x.com/intent/post" target="_blank" rel="noreferrer" className="p-2 bg-blue-100 text-blue-600 rounded-full hover:bg-blue-200 select-none" draggable="false">
                   <FaXTwitter className="w-5 h-5"/>
