@@ -1,0 +1,238 @@
+[
+  {
+    "id": "1",
+    "title": "Hackathon 2025: The First Step",
+    "description": " Call for Sponsors: HACKATHON - The First Step 2025 Манай клуб оюутан залуусын технологийн ур чадварыг хөгжүүлэх ACKATHON: The First Step 2025 арга хэмжээг зохион байгуулах гэж байна!Яагаад ивээн тэтгэх хэрэгтэй вэ? Технологийн ирээдүйг бүтээлцэх Шинийг санаачлагч, чадварлаг хөгжүүлэгчдийг дэмжихБрэндээ технологийн салбарт тани",
+    "date": "2025-04-10T09:00:00",
+    "location": "Ulaanbaatar, Mongolia",
+    "exactLocation": "MUST - 1st floor, Room 101",
+    "image": "/images/eventspage/hackathon/2025/banner.png",
+    "ticketsAvailable": true,
+    "ticketPrice": 9999999,
+    "ticketCurrency": "₮",
+    "maxAttendees": 100,
+    "status": "upcoming",
+    "ticketLink": "https://shorturl.at/SrOUb",
+    "agenda": "11:00 AM - Opening Ceremony\n12:00 PM - Team Formation\n1:00 PM - Hacking Begins\n6:00 PM - Dinner Break\n8:00 PM - Workshop: Building with AI",
+    "requirements": "Participants should bring their own laptops and any necessary software installed.",
+    "additionalInfo": "Food and drinks will be provided throughout the event.",
+    "people": [
+      {
+        "type": "Panenlist",
+        "name": "Cute Lisa",
+        "role": "Event Organizer",
+        "bio": "Software Engineer at Google",
+        "image": "/images/eventspage/hackathon/2025/panelists/1.jpg"
+      },
+      {
+        "type": "Speaker",
+        "name": "Pretty Lisa",
+        "bio": "CTO at Chimege",
+        "image": "/images/eventspage/hackathon/2025/panelists/1.jpg"
+      },
+      {
+        "type": "Speaker",
+        "name": "Crazy Lisa",
+        "bio": "Professor at MUST",
+        "image": "/images/eventspage/hackathon/2025/panelists/1.jpg"
+      },
+      {
+        "type": "panenlist",
+        "name": "Lisa",
+        "role": "Hackathon Mentor",
+        "bio": "Software Engineer at Google",
+        "image": "/images/eventspage/hackathon/2025/panelists/1.jpg"
+      },
+      {
+        "type": "panenlist",
+        "name": "Lisa",
+        "bio": "Software Engineer at Google",
+        "image": "/images/eventspage/hackathon/2025/panelists/1.jpg"
+      },
+      {
+        "type": "panenlist",
+        "name": "Lisa",
+        "bio": "Software Engineer at Google",
+        "image": "/images/eventspage/hackathon/2025/panelists/1.jpg"
+      }
+    ],
+    "sponsors": [
+      {
+        "name": "Google",
+        "logo": "/images/eventspage/hackathon/2025/sponsors/google.png",
+        "url": "https://google.com"
+      },
+      {
+        "name": "Chimege",
+        "logo": "/images/eventspage/hackathon/2025/sponsors/chimege.png",
+        "url": "https://chimege.com/"
+      },
+      {
+        "name": "MUST",
+        "logo": "/images/eventspage/hackathon/2025/sponsors/must.png",
+        "url": "https://must.edu.mn/"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Build with AI - Introduction to Gemini",
+    "description": "Includes a hands-on workshop on how to use Gemini for your projects.",
+    "date": "2025-02-24T16:40:00",
+    "location": "Ulaanbaatar, Mongolia",
+    "image": "/images/eventspage/buildwithai/banner.png",
+    "ticketsAvailable": false,
+    "status": "past"
+  },
+  {
+    "id": "3",
+    "title": "DevFest 2024",
+    "description": "Join us for a day of talks, workshops, and networking!",
+    "date": "2024-11-30T12:00:00",
+    "location": "Ulaanbaatar, Mongolia",
+    "image": "/images/eventspage/devfest/2024/banner.jpg",
+    "ticketsAvailable": false,
+    "status": "past"
+  },
+  {
+    "id": "4",
+    "title": "Redefine Possible x Build with AI",
+    "description": "Жил бүр дэлхийн 70+ улсад Google компанийн дэмжлэг дор зохион байгуулагддаг.\nЭнэ жилийн бидний уриа “Redefine Possible” бөгөөд сэдвийн хүрээнд салбартаа тэргүүлэгч гадаад болон дотоодын чадварлаг инженер, илтгэгчдийн сонирхолтой илтгэл, воркшопуудыг хүргэх болно.",
+    "date": "2025-04-19T09:00:00",
+    "organizer": [
+      {
+        "name": "GDG: UB",
+        "logo": "/images/eventspage/buildwithai/2025-2/organizer/gdgub.png",
+        "url": "https://www.facebook.com/gdg.ub.org"
+      },
+      {
+        "name": "Woman Techmakers: Mongolia",
+        "logo": "/images/eventspage/buildwithai/2025-2/organizer/wtm.png",
+        "url": "https://www.facebook.com/wtmmongolia"
+      }
+    ],
+    "location": "Ulaanbaatar, Mongolia",
+    "exactLocation": "ШУТИС-ийн 1-р байрны хурлын танхим",
+    "mapsLink": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2248.3346434998925!2d106.92384271976452!3d47.92215405218282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d969240515d3557%3A0xc3affbfcce02c6ce!2sMongolian%20University%20of%20Science%20and%20Technology!5e0!3m2!1sen!2smn!4v1744443902416!5m2!1sen!2smn",
+    "mapsLinkButton": "https://maps.app.goo.gl/fnZYiwq9m8qtEuVD9",
+    "image": "/images/eventspage/buildwithai/2025-2/banner.png",
+    "ticketsAvailable": true,
+    "ticketPrice": 40000,
+    "ticketCurrency": "₮",
+    "maxAttendees": 100,
+    "status": "upcoming",
+    "ticketLink": "https://event.gdg.mn/ticket/67e93f99747b1b7a337e1a5c",
+    "agenda": "11:00 AM - Opening Ceremony\n12:00 PM - Team Formation\n1:00 PM - Hacking Begins\n6:00 PM - Dinner Break\n8:00 PM - Workshop: Building with AI",
+    "requirements": "Participants should bring their own laptops and any necessary software installed.",
+    "additionalInfo": "Food and drinks will be provided throughout the event.",
+    "people": [
+      {
+        "type": "Speakers of Redefine Possible",
+        "name": "Н.Мөнхбаяр",
+        "role": "Host",
+        "bio": "WTM Ambassador, GDG UB зохион байгуулагч, Бүтээгдэхүүний дизайнер @TechPack Group LLC",
+        "image": "/images/eventspage/buildwithai/2025-2/people/Namuun.jpg"
+      },
+      {
+        "type": "Speakers of Redefine Possible",
+        "name": "Б.Долгорсүрэн",
+        "role": "Artificial Intelligence-Driven Technology on disease staging and diagnosis",
+        "bio": "Салбарын дэд профессор, доктор, @ ШУТИС - МХТС МТ",
+        "image": "/images/eventspage/buildwithai/2025-2/people/Dolgorsuren.jpg"
+      },
+      {
+        "type": "Speakers of Redefine Possible",
+        "name": "Н.Мөнхбаяр",
+        "role": "Хиймэл оюун ухааны дэвшлийг байгууллага хэрхэн нэвтрүүлэх вэ?",
+        "bio": "Core Platforms - Cloud Engineering, Ахлах инженер, @ Booking.com",
+        "image": "/images/eventspage/buildwithai/2025-2/people/Munkhbayar.jpg"
+      },
+      {
+        "type": "Speakers of Redefine Possible",
+        "name": "Стюарт Бонд",
+        "role": "AI for All: Redefining careers and communication through inclusion",
+        "bio": "Гүйцэтгэх захирал / Үүсгэн байгуулагч, @ FuseLabs AI",
+        "image": "/images/eventspage/buildwithai/2025-2/people/Stuart.jpg"
+      },
+      {
+        "type": "Speakers of Redefine Possible",
+        "name": "А.Индра",
+        "role": "Adapting to the new normal: How to prepare for an AI agent-driven workplace",
+        "bio": "Хамтран үүсгэн байгуулагч @ Softmax, AI инженер @ Smart Network LLC",
+        "image": "/images/eventspage/buildwithai/2025-2/people/Indra.jpg"
+      },
+      {
+        "type": "Speakers of Redefine Possible",
+        "name": "Э.Бат-Оргил",
+        "role": "Дижитал нүүрс: Хиймэл оюуны тусламжтай бий болсон шинэ боломжууд",
+        "bio": "Уул уурхайн технологи хариуцсан захирал, @ TechPack Group LLC",
+        "image": "/images/eventspage/buildwithai/2025-2/people/Orgil.jpg"
+      },
+      {
+        "type": "Guests of Build with AI",
+        "name": "Э.Санчир",
+        "role": "Developing your product with AI",
+        "bio": "Үүсгэн байгуулагч @ Plus AI, Full-stack Developer @ Datacom LLC",
+        "image": "/images/eventspage/buildwithai/2025-2/people/workshop/Sanchir.jpg"
+      },
+      {
+        "type": "Guests of Build with AI",
+        "name": "Д.Билгүүн",
+        "role": "MCP in Action: Smarter Context for Smarter AI",
+        "bio": "Үүсгэн байгуулагч @ Softmax",
+        "image": "/images/eventspage/buildwithai/2025-2/people/workshop/Bilguun.jpg"
+      },
+      {
+        "type": "Guests of Build with AI",
+        "name": "Г.Учрал",
+        "role": "TBD",
+        "bio": "TBD",
+        "image": "/images/eventspage/buildwithai/2025-2/people/workshop/Uchral.png"
+      },
+      {
+        "type": "Guests of Build with AI",
+        "name": "Б.Тайванбат",
+        "role": "Let's build company chatbot with Gemini API and Rag",
+        "bio": "AI Engineer/Back-End Developer @ Innovestment LLC",
+        "image": "/images/eventspage/buildwithai/2025-2/people/workshop/Taivanbat.jpg"
+      }
+    ],
+    "sponsors": [
+      {
+        "name": "PLUS AI",
+        "logo": "/images/eventspage/buildwithai/2025-2/sponsers/plus.svg",
+        "url": "https://plus.mn/"
+      },
+      {
+        "name": "Lemon Press",
+        "logo": "/images/eventspage/buildwithai/2025-2/sponsers/lemon.png",
+        "url": "https://lemonpress.mn/"
+      },
+      {
+        "name": "ONDO",
+        "logo": "/images/eventspage/buildwithai/2025-2/sponsers/ondo.svg",
+        "url": "https://ondo.mn/"
+      },
+      {
+        "name": "Blue infinity",
+        "logo": "/images/eventspage/buildwithai/2025-2/sponsers/blue-infinity.png",
+        "url": "https://blueinfinity.mn/"
+      },
+      {
+        "name": "IT Insight",
+        "logo": "/images/eventspage/buildwithai/2025-2/sponsers/it.png",
+        "url": "https://www.insight.mn/"
+      },
+      {
+        "name": "Education TV",
+        "logo": "/images/eventspage/buildwithai/2025-2/sponsers/edu.png",
+        "url": "https://edutv.mn/"
+      },
+      {
+        "name": "GDG on Campus MUST",
+        "logo": "/images/eventspage/buildwithai/2025-2/sponsers/gdgmust.png",
+        "url": "https://gdgmust.dev/"
+      } 
+    ]
+  }
+]
