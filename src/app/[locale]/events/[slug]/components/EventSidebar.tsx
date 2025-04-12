@@ -3,8 +3,6 @@ import { BsCircleFill } from 'react-icons/bs';
 import { BsFacebook } from "react-icons/bs";
 import { FaXTwitter } from "react-icons/fa6";
 
-import Image from "next/image";
-
 interface EventSidebarProps {
   event: any;
   registerText: string;
@@ -95,16 +93,12 @@ export default function EventSidebar({ event, registerText }: EventSidebarProps)
             <p className="text-sm text-gray-600 mb-3 select-none">Share this event</p>
             <div className="flex space-x-3">
               {/* Social share buttons */}
-              <button className="p-2 bg-blue-100 text-blue-600 rounded-full hover:bg-blue-200 select-none" draggable="false">
-                <a href="https://www.facebook.com/sharer/sharer.php" target="_blank" rel="noreferrer">
-                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg>
+                <a href="https://www.facebook.com/sharer/sharer.php" className="p-2 bg-blue-100 text-blue-600 rounded-full hover:bg-blue-200 select-none" target="_blank" draggable="false" rel="noreferrer">
+                  <BsFacebook className="w-5 h-5"/>
                 </a>
-              </button>
-              <button className="p-2 bg-blue-100 text-blue-600 rounded-full hover:bg-blue-200 select-none" draggable="false">
-                <a href="https://x.com/intent/post" target="_blank" rel="noreferrer">
+                <a href="https://x.com/intent/post" target="_blank" rel="noreferrer" className="p-2 bg-blue-100 text-blue-600 rounded-full hover:bg-blue-200 select-none" draggable="false">
                   <FaXTwitter className="w-5 h-5"/>
                 </a>
-              </button>
             </div>
           </div>
         </div>
