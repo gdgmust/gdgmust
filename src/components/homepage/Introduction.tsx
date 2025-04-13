@@ -125,12 +125,13 @@ const IntroductionSectionContent = () => {
   const t = useTranslations();
 
   return (
-    <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12 select-text" draggable="false">
-      <h2 className="text-center md:text-left lg:text-left col-span-1 text-3xl font-bold md:col-span-4">
-          {t('HomePage.about.title')}
-      </h2>
+    <div className="mx-auto max-w-5xl gap-8 px-4 pb-24 pt-12 md:grid-cols-12 select-text" draggable="false">
+      <div className="text-center md:text-left lg:text-left md:col-span-4 pb-10 leading-[34px]">
+        <p className="flex justify-center text-[42px] font-bold">{t('HomePage.about.title')}</p>
+        <p className="flex justify-center text-[18px] font-regular">{t('HomePage.about.title2')}</p>
+      </div>
       <div className="col-span-1 md:col-span-8">
-        <p className="mb-4 text-xl text-justify text-neutral-600 md:text-2xl">
+        <p className="mb-4 text-xl text-justify text-neutral-600 md:text-2xl pb-5">
           {t('HomePage.about.description')}
         </p>
         {/* <p className="mb-8 text-xl text-neutral-600 md:text-2xl">

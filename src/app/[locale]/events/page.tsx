@@ -4,6 +4,8 @@ import PaginationControls from '@/components/eventspage/PaginationControls';
 import EventSearch from '@/components/eventspage/EventSearch';
 import { getTranslations } from 'next-intl/server';
 
+import ScrollReveal from '@/components/utils/animations/ScrollReveal';
+
 const ITEMS_PER_PAGE = 9;
 
 
@@ -90,13 +92,17 @@ export default async function EventsPage({
           )}
           
           {/* Upcoming events section */}
+          <ScrollReveal variant="fadeReveal" delay={0.1}>
           <h2 className="text-2xl font-bold mt-5 mb-4">
             {t('headerofevents.upcoming')}
           </h2>
+          </ScrollReveal>
+
           <a>
           {allUpcomingEvents.length > 0 ? (
             <>
-              <EventList events={upcomingEvents} />
+              <ScrollReveal variant="fadeReveal" delay={0.5}>
+              <EventList events={upcomingEvents} /> </ScrollReveal>
               {totalUpcomingPages > 1 && (
                 <PaginationControls 
                   currentPage={upcomingPage}
@@ -112,13 +118,16 @@ export default async function EventsPage({
           </a>
           
           {/* Past events section */}
+          <ScrollReveal variant="fadeReveal" delay={0.7}>
           <h2 className="text-2xl font-bold mb-4 mt-16">
             {t('headerofevents.past')}
-          </h2>
+          </h2> 
+          </ScrollReveal>
           <a>
           {allPastEvents.length > 0 ? (
             <>
-              <EventList events={pastEvents} />
+              <ScrollReveal variant="fadeReveal" delay={0.9}>
+              <EventList events={pastEvents} /> </ScrollReveal>
               {totalPastPages > 1 && (
                 <PaginationControls 
                   currentPage={pastPage}

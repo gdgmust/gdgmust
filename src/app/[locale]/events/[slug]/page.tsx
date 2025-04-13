@@ -13,8 +13,6 @@ import EventPeople from './components/EventPeople';
 import EventSponsors from './components/EventSponsors';
 import EventOrganizer from './components/EventOrganizer';
 
-import ScrollElement from 'locomotive-scroll/dist/types/core/ScrollElement.js';
-
 export async function generateMetadata(props: any) {
   const params = await resolveParams(props.params);
   const event = await getEventBySlug(params);
