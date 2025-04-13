@@ -18,7 +18,7 @@ export default function ConsoleMessage() {
            **:    =*   *-     +*               
               ****       ****                  
     
-%c👀 Hey you! Look at something?
+%c👀 Hey you! Look at something, huh?
 %c🚀 Join the GDG team: https://www.facebook.com/gdgcmust`,
   'color: #ffffff; font-weight: bold; font-size: 12px;', // ASCII art color
   'color: #8bc34a; font-size: 14px; font-weight: bold;', // message color
