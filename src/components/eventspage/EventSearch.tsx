@@ -59,21 +59,23 @@ export default function SearchBar() {
           className="flex-grow ml-2 mb-[2px] h-full bg-transparent outline-none text-base placeholder-zinc-300 select-none"
           onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
         />
-        <button 
-          onClick={handleSearch}
-          className="flex items-center justify-center bg-zinc-300 w-9 h-9 rounded-full"
-          aria-label="Search"
-        >
-          {query && (
-            <button
-              onClick={handleClearSearch}
-              className="scale-125"
-              aria-label="Clear search"
-            >
-              <IoClose />
-            </button>
-          ) || <IoSearch className="scale-125" />}
-        </button>
+        {query ? (
+          <button 
+            onClick={handleClearSearch}
+            className="flex items-center justify-center bg-zinc-300 w-9 h-9 rounded-full"
+            aria-label="Clear search"
+          >
+            <IoClose className="scale-125" />
+          </button>
+        ) : (
+          <button 
+            onClick={handleSearch}
+            className="flex items-center justify-center bg-zinc-300 w-9 h-9 rounded-full"
+            aria-label="Search"
+          >
+            <IoSearch className="scale-125" />
+          </button>
+        )}
       </div>
     </div>
   );

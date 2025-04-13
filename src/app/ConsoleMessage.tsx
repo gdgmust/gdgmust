@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 
 export default function ConsoleMessage() {
   useEffect(() => {
+    console.clear()
     console.log(
       `%c
               ****       ****                  

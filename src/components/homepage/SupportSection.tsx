@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export const Example = () => {
     return (
-      <div className="flex items-center justify-center text-neutral-800">
+      <div className="flex items-center justify-center text-neutral-800 px-6">
         <BlockInTextCard
           tag="/ Support"
           text={
@@ -35,12 +35,12 @@ const BlockInTextCard = ({
   examples: string[];
 }) => {
   return (
-    <div className="w-full max-w-xl space-y-6">
+    <div className="lg:w-[800px] min-w-xl space-y-6">
       <div>
         <p className="mb-1.5 text-sm font-light uppercase">{tag}</p>
         <hr className="border-neutral-700" />
       </div>
-      <p className="max-w-lg text-xl leading-relaxed">{text}</p>
+      <p className="text-xl leading-relaxed">{text}</p>
       <div>
         <Typewrite examples={examples} />
         <hr className="" />

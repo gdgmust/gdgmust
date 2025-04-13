@@ -39,7 +39,7 @@ export default function HomePage() {
 
 
       {/* Support */}
-      <div className='flex items-center justify-center py-10'>
+      <div className='flex items-center justify-center pt-24 pb-24'>
         <Example />
       </div>
 
