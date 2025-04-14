@@ -14,7 +14,7 @@
     "ticketCurrency": "₮",
     "maxAttendees": 15,
     "status": "upcoming",
-    "ticketLink": "https://shorturl.at/SrOUb",
+    "ticketLink": "https://docs.google.com/forms/d/e/1FAIpQLScU-YeqjNs8agR_HKSyergUZXUyDxwQpOx2HYcMIbAIypasdQ/viewform?usp=dialog",
     "agenda": "...",
     "requirements": "Participants should bring their own laptops and any necessary software installed.",
     "additionalInfo": "Food and drinks will be provided throughout the event.",
@@ -31,6 +31,9 @@
       }
     ]
   },
+
+
+
   {
     "id": "2",
     "title": "Build with AI - Introduction to Gemini",
@@ -41,6 +44,9 @@
     "ticketsAvailable": false,
     "status": "past"
   },
+
+
+
   {
     "id": "3",
     "title": "DevFest 2024",
@@ -51,6 +57,9 @@
     "ticketsAvailable": false,
     "status": "past"
   },
+
+
+
   {
     "id": "4",
     "title": "Redefine Possible x Build with AI",

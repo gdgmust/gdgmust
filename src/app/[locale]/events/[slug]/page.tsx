@@ -20,9 +20,17 @@ export async function generateMetadata(props: any) {
   if (!event) return { title: 'Event Not Found' };
   
   return {
+    metadataBase: new URL('https://www.gdgmust.dev'),
     title: event.title,
     description: event.description,
     openGraph: {
+      title: event.title,
+      description: event.description,
+      images: event.image ? [event.image] : [],
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
       title: event.title,
       description: event.description,
       images: event.image ? [event.image] : [],
