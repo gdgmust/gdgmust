@@ -13,60 +13,9 @@
     "maxAttendees": 100,
     "status": "upcoming",
     "ticketLink": "https://shorturl.at/SrOUb",
-    "agenda": "11:00 AM - Opening Ceremony\n12:00 PM - Team Formation\n1:00 PM - Hacking Begins\n6:00 PM - Dinner Break\n8:00 PM - Workshop: Building with AI",
     "requirements": "Participants should bring their own laptops and any necessary software installed.",
     "additionalInfo": "Food and drinks will be provided throughout the event.",
-    "people": [
-      {
-        "type": "Panenlist",
-        "name": "Cute Lisa",
-        "role": "Event Organizer",
-        "bio": "Software Engineer at Google",
-        "image": "/images/eventspage/hackathon/2025/panelists/1.jpg"
-      },
-      {
-        "type": "Speaker",
-        "name": "Pretty Lisa",
-        "bio": "CTO at Chimege",
-        "image": "/images/eventspage/hackathon/2025/panelists/1.jpg"
-      },
-      {
-        "type": "Speaker",
-        "name": "Crazy Lisa",
-        "bio": "Professor at MUST",
-        "image": "/images/eventspage/hackathon/2025/panelists/1.jpg"
-      },
-      {
-        "type": "panenlist",
-        "name": "Lisa",
-        "role": "Hackathon Mentor",
-        "bio": "Software Engineer at Google",
-        "image": "/images/eventspage/hackathon/2025/panelists/1.jpg"
-      },
-      {
-        "type": "panenlist",
-        "name": "Lisa",
-        "bio": "Software Engineer at Google",
-        "image": "/images/eventspage/hackathon/2025/panelists/1.jpg"
-      },
-      {
-        "type": "panenlist",
-        "name": "Lisa",
-        "bio": "Software Engineer at Google",
-        "image": "/images/eventspage/hackathon/2025/panelists/1.jpg"
-      }
-    ],
     "sponsors": [
-      {
-        "name": "Google",
-        "logo": "/images/eventspage/hackathon/2025/sponsors/google.png",
-        "url": "https://google.com"
-      },
-      {
-        "name": "Chimege",
-        "logo": "/images/eventspage/hackathon/2025/sponsors/chimege.png",
-        "url": "https://chimege.com/"
-      },
       {
         "name": "MUST",
         "logo": "/images/eventspage/hackathon/2025/sponsors/must.png",
