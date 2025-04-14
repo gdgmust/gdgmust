@@ -12,6 +12,7 @@ import {notFound} from 'next/navigation';
 import FirstVisitAnimation from '@/components/utils/animations/FirstVisitAnimation';
 import SmoothScroll from '@/components/utils/SmoothScroll'
 import ScrollToTop from '@/components/utils/ScrollToTop';
+import InAppBrowserDetector from '@/components/utils/InAppBrowserDetector';
 
 // Fun trick
 import ConsoleMessage from './../ConsoleMessage';
@@ -53,6 +54,7 @@ export default async function LocaleLayout({
           {/* <CustomCursor /> */}
           <ScrollToTop />
           <FirstVisitAnimation />
+          <InAppBrowserDetector />
           <div className="flex flex-col min-h-screen">
             <div className="w-full fixed z-30">  
               <MainNavbar />
