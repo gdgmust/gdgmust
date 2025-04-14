@@ -117,18 +117,6 @@ export default function InAppBrowserDetector() {
       }
     }, 500);
     
-    // Try to use navigator.share API if available (gives share sheet on mobile)
-    if (navigator.share) {
-      try {
-        navigator.share({
-          title: document.title,
-          url: url
-        });
-      } catch (error) {
-        console.log('Error sharing:', error);
-      }
-    }
-    
     // Don't dismiss the UI immediately to give methods time to work
     setTimeout(() => setDismissed(true), 1500);
   };
@@ -188,7 +176,7 @@ export default function InAppBrowserDetector() {
             </p>
           </div>
           
-          {/* Share button if supported by the browser */}
+          
           <div className="flex flex-col sm:flex-row gap-3 justify-end">
             <button
               onClick={handleDismiss}
@@ -202,19 +190,6 @@ export default function InAppBrowserDetector() {
             >
               {showCopyNotification ? 'Link copied!' : 'Copy Link'}
             </button>
-            {navigator.share ? (
-              <button
-                onClick={() => {
-                  navigator.share({
-                    title: document.title,
-                    url: window.location.href
-                  }).catch(err => console.error('Error sharing:', err));
-                }}
-                className="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-500 transition-all flex items-center justify-center"
-              >
-                Share
-              </button>
-            ) : null}
             <button
               onClick={handleOpenInBrowser}
               className="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-500 transition-all flex items-center justify-center"
