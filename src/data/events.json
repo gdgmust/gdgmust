@@ -2,19 +2,20 @@
   {
     "id": "1",
     "title": "Hackathon 2025: The First Step",
-    "description": "GDG on Campus MUST анх удаа оюутнуудад зориулсан хакатоныг зохион байгуулж байна. Энэхүү арга хэмжээ нь бүтээлч сэтгэлгээ, багийн ажиллагаа, техник технологийн мэдлэгийг нэгтгэсэн, шинэлэг санаа, шийдлүүдийг хөгжүүлэх юм. Та өөрийн санаагаа бодитоор хэрэгжүүлэхийг хүсдэг үү? Багаараа өрсөлдөж, хамтдаа хөгжихийг хүсэж байна уу?\n\nТэгвэл та яг одоо бүртгүүлээрэй!",
-    "date": "2025-04-25T09:00:00",
+    "description": "GDG on Campus MUST анх удаа оюутнуудад зориулсан хакатоныг зохион байгуулж байна. Энэхүү арга хэмжээ нь бүтээлч сэтгэлгээ, багийн ажиллагаа, техник технологийн мэдлэгийг нэгтгэсэн, шинэлэг санаа, шийдлүүдийг хөгжүүлэх юм. Та өөрийн санаагаа бодитоор хэрэгжүүлэхийг хүсдэг үү? Багаараа өрсөлдөж, хамтдаа хөгжихийг хүсэж байна уу?\n\nТэгвэл та яг одоо бүртгүүлээрэй!\n( Maximum: 15-team )",
+    "date": "2025-04-26T09:00:00",
     "location": "Ulaanbaatar, Mongolia",
-    "exactLocation": "MUST",
-    "mapsLink": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2248.3346434998925!2d106.92384271976452!3d47.92215405218282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d969240515d3557%3A0xc3affbfcce02c6ce!2sMongolian%20University%20of%20Science%20and%20Technology!5e0!3m2!1sen!2smn!4v1744443902416!5m2!1sen!2smn",
-    "mapsLinkButton": "https://maps.app.goo.gl/fnZYiwq9m8qtEuVD9",
+    "exactLocation": "ШУТИС-ийн 8-р байр",
+    "mapsLink": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1336.8854064532675!2d106.92332803906916!3d47.92147189028434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d9693a627f0c703%3A0x1baecae752faa611!2z0KjQo9Ci0JjQoSA4LdGAINCx0LDQudGA!5e0!3m2!1sen!2smn!4v1744609892178!5m2!1sen!2smn",
+    "mapsLinkButton": "https://maps.app.goo.gl/P2qCp1ZSPd2yc1hdA",
     "image": "/images/eventspage/hackathon/2025/banner.jpg",
     "ticketsAvailable": true,
-    "ticketPrice": 999999,
+    "ticketPrice": 30000,
     "ticketCurrency": "₮",
-    "maxAttendees": 100,
+    "maxAttendees": 15,
     "status": "upcoming",
     "ticketLink": "https://shorturl.at/SrOUb",
+    "agenda": "...",
     "requirements": "Participants should bring their own laptops and any necessary software installed.",
     "additionalInfo": "Food and drinks will be provided throughout the event.",
     "sponsors": [
@@ -22,6 +23,11 @@
         "name": "MUST",
         "logo": "/images/eventspage/hackathon/2025/sponsors/must.png",
         "url": "https://must.edu.mn/"
+      },
+      {
+        "name": "PhData Solution",
+        "logo": "/images/eventspage/hackathon/2025/sponsors/phdata.png",
+        "url": "https://www.facebook.com/profile.php?id=61573769049954"
       }
     ]
   },
