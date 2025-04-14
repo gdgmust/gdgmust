@@ -47,6 +47,11 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <head>
           <link rel="icon" href="/favicon.ico" sizes="any" />
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta name="apple-itunes-app" content="app-id=none" /> {/* Prevents iOS Smart App Banner */}
+          <meta name="format-detection" content="telephone=no" />
+          <meta property="al:android:url" content={`https://gdgmust.dev/?external=true`} />
+          <meta property="al:ios:url" content={`https://gdgmust.dev/?external=true`} />
       </head>
       <body>
         <NextIntlClientProvider messages={messages}>
