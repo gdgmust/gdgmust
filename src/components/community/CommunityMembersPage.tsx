@@ -6,7 +6,6 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
-import ScrollReveal from '@/components/utils/animations/ScrollReveal';
 
 import { useState, useEffect } from 'react';
 
@@ -119,9 +118,9 @@ function MemberGrid({ members, title, description }: {
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {members.map((member) => (
-          <ScrollReveal key={member.id} variant="fadeReveal" delay={0.1}>
+          <div>
             <MemberCard member={member} />
-          </ScrollReveal>
+          </div>
         ))}
       </div>
     </div>
@@ -142,14 +141,14 @@ function MemberCategories({ members }: { members: Member[] }) {
   return (
     <>
       {Object.entries(roleGroups).map(([role, members], index) => (
-        <ScrollReveal key={role} variant="fadeReveal" delay={0.1 * (index + 1)}>
+        <div>
           <h3 className="text-2xl font-bold mb-6 mt-16 text-center">{role}</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {members.map(member => (
               <MemberCard key={member.id} member={member} />
             ))}
           </div>
-        </ScrollReveal>
+        </div>
       ))}
     </>
   );
@@ -177,13 +176,11 @@ export default function CommunityMembersPage() {
         <div className="container mx-auto px-4 py-16">
 
           {/* Members Grid - Option 1: Show all together */}
-          <ScrollReveal variant="fadeReveal" delay={0.2}>
             <MemberGrid 
               members={members} 
               title="Meet Our Team"
               description="Dedicated individuals working together to build and grow our tech community"
             />
-          </ScrollReveal>
 
           {/* Members Grid - Option 2: Show by categories */}
           {/* <MemberCategories members={members} /> */}
