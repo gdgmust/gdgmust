@@ -1,6 +1,6 @@
 import { getEvents } from '@/lib/data';
 import EventList from '@/components/eventspage/EventList';
-import PaginationControls from '@/components/eventspage/PaginationControls';
+import PaginationControls from '@/components/utils/PaginationControls';
 import EventSearch from '@/components/eventspage/EventSearch';
 import { getTranslations } from 'next-intl/server';
 

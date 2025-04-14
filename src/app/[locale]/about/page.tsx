@@ -3,6 +3,7 @@ import {Link} from '@/i18n/routing';
 
 import TextParallax from '@/components/aboutpage/TextParallax';
 import StartSection from '@/components/aboutpage/StartSection'; 
+import DoYouWannaJoinUs from '@/components/aboutpage/DoYouWannaJoinUs';
 
 export async function generateMetadata(props: any) {
   return {
@@ -27,6 +28,9 @@ export default function HomePage() {
       </div>
       <div className="select-none">
         <TextParallax />          
+      </div>
+      <div className="select-none">
+        <DoYouWannaJoinUs />
       </div>
     </div>
   );

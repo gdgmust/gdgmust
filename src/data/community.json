@@ -3,7 +3,7 @@
       "id": "1",
       "name": "Ahmed Hassan",
       "role": "GDG Lead",
-      "image": "/images/members/ahmed-hassan.jpg",
+      "image": "/images/test.jpg",
       "bio": "Computer Science senior with a passion for building developer communities. Has been leading GDG MUST since 2023.",
       "specialties": ["Community Building", "Flutter", "Cloud"],
       "socialLinks": {
