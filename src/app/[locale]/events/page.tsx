@@ -118,7 +118,7 @@ export default async function EventsPage({
           </a>
           
           {/* Past events section */}
-          <ScrollReveal variant="fadeReveal" delay={0.7}>
+          <ScrollReveal variant="fadeReveal" delay={0.6}>
           <h2 className="text-2xl font-bold mb-4 mt-16">
             {t('headerofevents.past')}
           </h2> 
@@ -126,7 +126,7 @@ export default async function EventsPage({
           <a>
           {allPastEvents.length > 0 ? (
             <>
-              <ScrollReveal variant="fadeReveal" delay={0.9}>
+              <ScrollReveal variant="fadeReveal" delay={0.8}>
               <EventList events={pastEvents} /> </ScrollReveal>
               {totalPastPages > 1 && (
                 <PaginationControls 
