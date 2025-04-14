@@ -56,7 +56,7 @@ export default function InAppBrowserDetector() {
     // Store that user has interacted with the prompt
     sessionStorage.setItem('bypassInAppBrowser', 'true');
     
-    // Generate the URL to open in default browser
+    // Get current URL
     let url = window.location.href;
     
     // Add special parameters that might help trigger external browser
@@ -66,27 +66,71 @@ export default function InAppBrowserDetector() {
       url += '&external=true';
     }
     
-    // Try multiple methods to open in external browser
+    // Create an invisible anchor element for more reliable external opening
+    const a = document.createElement('a');
+    a.href = url;
+    a.target = '_blank'; // Try to open in new tab/window
+    a.rel = 'noopener noreferrer';
     
-    // Method 1: Try standard window.open with _system target (might work in some cases)
-    window.open(url, '_system');
+    // Add special attributes that might help open in external browser
+    a.setAttribute('data-browser', 'external');
+    a.setAttribute('data-external-browser', 'true');
     
-    // Method 2: Try regular _blank target
-    setTimeout(() => {
-      window.open(url, '_blank');
-    }, 100);
-    
-    // Method 3: Location change with the target top
-    setTimeout(() => {
-      if (window.top) {
-        window.top.location.href = url;
+    // Try browser-specific schemes based on detected browser type
+    if (browserType === 'Facebook' || browserType === 'Instagram' || browserType === 'Messenger') {
+      // For iOS
+      if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+        // Try Safari-specific URL scheme
+        setTimeout(() => {
+          window.location.href = `x-web-search://?${encodeURIComponent(url)}`;
+        }, 100);
+        
+        // Try Chrome on iOS
+        setTimeout(() => {
+          window.location.href = `googlechrome://${url.replace(/^https?:\/\//, '')}`;
+        }, 200);
       }
-    }, 200);
+      
+      // For Android
+      if (navigator.userAgent.match(/Android/i)) {
+        // Try Intent URL format for Chrome
+        setTimeout(() => {
+          window.location.href = `intent://${url.replace(/^https?:\/\//, '')}#Intent;scheme=https;package=com.android.chrome;end`;
+        }, 100);
+      }
+    }
     
-    // Don't dismiss immediately to allow multiple methods to try
+    // Try simulating direct user interaction by adding to DOM and clicking
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    
+    // Try direct window methods with different targets
+    setTimeout(() => window.open(url, '_system'), 100);
+    setTimeout(() => window.open(url, '_blank'), 200);
+    
+    // Also try to use location directly with fallbacks
     setTimeout(() => {
-      setDismissed(true);
-    }, 1000);
+      if (window.location.href === url) {
+        // If we're still on the same page, try forcing a refresh with "external" flag
+        window.location.href = url + "&forceExternal=true";
+      }
+    }, 500);
+    
+    // Try to use navigator.share API if available (gives share sheet on mobile)
+    if (navigator.share) {
+      try {
+        navigator.share({
+          title: document.title,
+          url: url
+        });
+      } catch (error) {
+        console.log('Error sharing:', error);
+      }
+    }
+    
+    // Don't dismiss the UI immediately to give methods time to work
+    setTimeout(() => setDismissed(true), 1500);
   };
 
   const handleCopyLink = () => {
@@ -125,19 +169,26 @@ export default function InAppBrowserDetector() {
             For the best experience, please open this site in your device's default browser (Safari, Chrome, etc.)
           </p>
           
-          {/* Browser specific instructions */}
+          {/* Browser specific instructions - Updated with clearer guidance */}
           <div className="mb-4 p-3 bg-blue-50 rounded-lg text-sm">
             <p className="font-medium text-blue-800 mb-1">How to open in your browser:</p>
             <ol className="list-decimal pl-5 text-blue-800">
               <li>Tap the "Copy Link" button below</li>
-              <li>Open your device's browser (Safari/Chrome)</li>
+              <li>Open your device's browser app</li>
               <li>Paste the link in the address bar</li>
             </ol>
             <p className="mt-2 text-blue-800">
-              You can also try the "Open in browser" button, but it might not work in all in-app browsers.
+              {browserType === 'Facebook' ? (
+                <span>Facebook blocks external links. Try the three dots menu (⋯) in the top right and select "Open in browser"</span>
+              ) : browserType === 'Instagram' ? (
+                <span>Instagram blocks external links. Try the three dots menu (⋯) at the bottom and select "Open in browser"</span>
+              ) : (
+                <span>You can also try the "Open in browser" button below</span>
+              )}
             </p>
           </div>
           
+          {/* Share button if supported by the browser */}
           <div className="flex flex-col sm:flex-row gap-3 justify-end">
             <button
               onClick={handleDismiss}
@@ -151,6 +202,19 @@ export default function InAppBrowserDetector() {
             >
               {showCopyNotification ? 'Link copied!' : 'Copy Link'}
             </button>
+            {navigator.share ? (
+              <button
+                onClick={() => {
+                  navigator.share({
+                    title: document.title,
+                    url: window.location.href
+                  }).catch(err => console.error('Error sharing:', err));
+                }}
+                className="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-500 transition-all flex items-center justify-center"
+              >
+                Share
+              </button>
+            ) : null}
             <button
               onClick={handleOpenInBrowser}
               className="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-500 transition-all flex items-center justify-center"
