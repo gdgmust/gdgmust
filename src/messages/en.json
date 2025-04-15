@@ -51,7 +51,16 @@
       "2": "Creative",
       "3": "Development",
       "4": "Member Engagement",
-      "5": "Outreach"
+      "5": "Outreach",
+      "6": "Volunteer"
+    },
+    "catogorylist": {
+      "1": "GDG Leader",
+      "2": "Creative Team - Leader",
+      "3": "Development Team - Leader",
+      "4": "Member Engagement - Leader",
+      "5": "Outreach - Leader",
+      "6": "Volunteer"
     }
   },
 

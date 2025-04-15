@@ -1,45 +1,40 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import { useTranslations } from "next-intl";
+import { useCommunity } from "@/components/community/context/CommunityContext";
 
 export default function FilterCategory() {
     const t = useTranslations();
+    const { activeRoleFilter, setActiveRoleFilter } = useCommunity();
+
+    // Predefined roles for translation keys
+    const roles = [
+      { key: 'all', translationKey: 'CommunityPage.filter.seeAll' },
+      { key: 'GDG Lead', translationKey: 'CommunityPage.filter.1' },
+      { key: 'Core Team', translationKey: 'CommunityPage.filter.2' },
+      { key: 'Developer', translationKey: 'CommunityPage.filter.3' },
+      { key: 'Designer', translationKey: 'CommunityPage.filter.4' },
+      { key: 'Member', translationKey: 'CommunityPage.filter.5' }
+    ];
 
     return(
-        <nav className='flex justify-center items-center mt-4 flex-col md:flex-row lg:flex-row' draggable="false">
-        <nav className='p-1 -pr-1 md:pr-2 lg:pr-2'>
-        <button className='flex justify-center item-center select-none bg-[#EDEDED] rounded-full px-4 h-[42px]'>
-          <a className='mt-[8px] text-[17px]'>{t('CommunityPage.filter.seeAll')}</a> 
-        </button>
-        </nav>
-
-        <nav className='p-1'>
-        <button className='flex justify-center item-center select-none bg-[#EDEDED] rounded-full px-4 h-[42px]'>
-          <a className='mt-[8px] text-[17px]'>{t('CommunityPage.filter.1')}</a> 
-        </button>
-        </nav>
-
-        <nav className='p-1'>
-        <button className='flex justify-center item-center select-none bg-[#EDEDED] rounded-full px-4 h-[42px]'>
-          <a className='mt-[8px] text-[17px]'>{t('CommunityPage.filter.2')}</a> 
-        </button>
-        </nav>
-        
-        <nav className='p-1'>
-        <button className='flex justify-center item-center select-none bg-[#EDEDED] rounded-full px-4 h-[42px]'>
-          <a className='mt-[8px] text-[17px]'>{t('CommunityPage.filter.3')}</a> 
-        </button>
-        </nav>
-        
-        <nav className='p-1'>
-        <button className='flex justify-center item-center select-none bg-[#EDEDED] rounded-full px-4 h-[42px]'>
-          <a className='mt-[8px] text-[17px]'>{t('CommunityPage.filter.4')}</a> 
-        </button>
-        </nav>
-
-        <nav className='p-1'>
-        <button className='flex justify-center item-center select-none bg-[#EDEDED] rounded-full px-4 h-[42px]'>
-          <a className='mt-[8px] text-[17px]'>{t('CommunityPage.filter.5')}</a> 
-        </button>
-        </nav>
-      </nav>
+        <div className='flex justify-center items-center mt-4 flex-wrap gap-2 md:gap-3 lg:gap-4 px-4' draggable="false">
+            {roles.map((role) => (
+                <motion.button
+                    key={role.key}
+                    className={`flex justify-center items-center select-none rounded-full px-4 h-[42px] transition-all duration-300 ${
+                        activeRoleFilter === role.key ? 
+                        'bg-blue-600 text-white shadow-md' : 
+                        'bg-[#EDEDED] text-gray-800 hover:bg-gray-200'
+                    }`}
+                    onClick={() => setActiveRoleFilter(role.key)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                >
+                    <span className='text-[17px]'>{t(role.translationKey)}</span>
+                </motion.button>
+            ))}
+        </div>
     );
-} 
+}

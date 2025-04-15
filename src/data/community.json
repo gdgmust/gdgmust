@@ -1,9 +1,10 @@
 [
     {
       "id": "1",
-      "name": "Ahmed Hassan",
-      "role": "GDG Lead",
-      "image": "/images/test.jpg",
+      "name": "Purevjargal Bolor-Erdene",
+      "role": "leaderof-gdg",
+      "year": "2023",
+      "image": "/images/community/members/2022/purevjargal.png",
       "bio": "Computer Science senior with a passion for building developer communities. Has been leading GDG MUST since 2023.",
       "specialties": ["Community Building", "Flutter", "Cloud"],
       "socialLinks": {
@@ -15,9 +16,10 @@
     },
     {
       "id": "2",
-      "name": "Nour Ahmed",
-      "role": "Technical Lead",
-      "image": "/images/members/nour-ahmed.jpg",
+      "name": "Amartuvshin B",
+      "year": "2023",
+      "role": "leaderof-development",
+      "image": "/images/community/members/2023/amartuvshin.png",
       "bio": "Senior developer specializing in Android and Kotlin. Organizes technical workshops and hackathons at MUST.",
       "specialties": ["Android", "Kotlin", "Firebase"],
       "socialLinks": {
@@ -28,9 +30,10 @@
     },
     {
       "id": "3",
-      "name": "Sara Mohamed",
-      "role": "Design Lead",
-      "image": "/images/members/sara-mohamed.jpg",
+      "name": "Erkhemtur Altan-Ochir",
+      "role": "leaderof-creative",
+      "year": "2024",
+      "image": "/images/community/members/2024/Erkhemtur.png",
       "bio": "UI/UX designer with a background in graphic design. Loves creating inclusive and accessible user experiences.",
       "specialties": ["UI/UX", "Figma", "Design Systems"],
       "socialLinks": {
@@ -41,9 +44,10 @@
     },
     {
       "id": "4",
-      "name": "Omar Khaled",
-      "role": "Web Development Lead",
-      "image": "/images/members/omar-khaled.jpg",
+      "name": "Munkhtuya",
+      "role": "leaderof-outreach",
+      "year": "2023",
+      "image": "/images/community/members/2023/munkhtuya.png",
       "bio": "Front-end developer with expertise in React and Next.js. Passionate about web performance and modern JavaScript.",
       "specialties": ["React", "Next.js", "TypeScript"],
       "socialLinks": {
