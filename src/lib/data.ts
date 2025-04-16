@@ -33,8 +33,8 @@ export async function getMembers(year?: string) {
       
       // Get exit year (default to current year + 1 if still active)
       let memberExitYear;
-      if (member.exitYear && member.exitYear !== false) {
-        memberExitYear = parseInt(member.exitYear as string);
+      if (member.exitYear && typeof member.exitYear === 'string') {
+        memberExitYear = parseInt(member.exitYear);
       } else if (member.activeStatus === false) {
         // If inactive but no exit year specified, assume they left last year
         memberExitYear = parseInt(currentYear) - 1;

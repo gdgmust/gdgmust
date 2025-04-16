@@ -21,7 +21,7 @@ interface Member {
   year?: string;
   sinceYear?: string;
   wasOnClub?: boolean;
-  exitYear?: string | false;
+  exitYear?: string | boolean;
   activeStatus?: boolean;
   socialLinks?: {
     twitter?: string;
@@ -69,7 +69,7 @@ function MemberCard({ member, index }: { member: Member, index: number }) {
   
   // Determine the member's status based on year, exitYear, and activeStatus
   let memberStatus = '';
-  const isFormerMember = member.exitYear && member.exitYear !== false;
+  const isFormerMember = member.exitYear !== undefined && member.exitYear !== false;
   // Use either sinceYear or year field
   const joinYear = member.sinceYear || member.year || '';
   
@@ -101,23 +101,23 @@ function MemberCard({ member, index }: { member: Member, index: number }) {
   return (
     <motion.div 
       layout
-      className={`bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 
+      className={`bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform w-[325px] h-[550px]
         ${(isFormerMember || member.activeStatus === false) ? 'opacity-75' : ''}`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.3, delay: index * 0.05 }}
-      whileHover={{ y: -5 }}
       key={member.id}
     >
       {member.image ? (
-        <div className="relative h-64 w-full">
+        <div className="relative h-[280px] w-full">
           <Image 
             src={member.image} 
             alt={getMemberName()}
             fill
+            draggable="false"
             style={{objectFit: 'cover'}}
-            className="transition-all duration-500 hover:scale-105"
+            className="transition-all duration-500 rounded-xl hover:scale-105 select-none"
           />
         </div>
       ) : (
@@ -169,7 +169,8 @@ function MemberCard({ member, index }: { member: Member, index: number }) {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-blue-400 transition-colors"
-                whileHover={{ scale: 1.2, rotate: 5 }}
+                whileHover={{ scale: 1.2}}
+                draggable="false"
               >
                 <FaTwitter size={20} />
               </motion.a>
@@ -180,7 +181,8 @@ function MemberCard({ member, index }: { member: Member, index: number }) {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-blue-700 transition-colors"
-                whileHover={{ scale: 1.2, rotate: 5 }}
+                whileHover={{ scale: 1.2}}
+                draggable="false"
               >
                 <FaLinkedin size={20} />
               </motion.a>
@@ -191,7 +193,8 @@ function MemberCard({ member, index }: { member: Member, index: number }) {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-black transition-colors"
-                whileHover={{ scale: 1.2, rotate: 5 }}
+                whileHover={{ scale: 1.2}}
+                draggable="false"
               >
                 <FaGithub size={20} />
               </motion.a>
@@ -260,7 +263,7 @@ export default function CommunityMembersPage() {
               
               <AnimatePresence mode="wait">
                 <motion.div 
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+                  className="flex flex-row justify-center items-center flex-wrap gap-4 md:gap-8 lg:gap-10 gap-y-12"
                   initial="hidden"
                   animate="visible"
                   exit="exit"

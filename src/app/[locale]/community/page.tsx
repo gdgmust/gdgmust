@@ -47,44 +47,29 @@ const YearSelector = () => {
       <motion.button 
         className="flex justify-center items-center select-none bg-white border border-black rounded-full px-5 h-[42px]"
         onClick={() => setYearMenuOpen(!yearMenuOpen)}
-        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        <span className="mt-[7px] text-[17px]">
+        <span className="mt-[2px] text-[17px]">
           {getYearDisplay(activeYearFilter)}
         </span>
         {yearMenuOpen ? 
-          <IoClose className="ml-[10px] mt-[10px] size-5" /> :
-          <IoMenu className="ml-[10px] mt-[10px] size-5" />
+          <IoClose className="ml-[10px] mt-[2px] size-5" /> :
+          <IoMenu className="ml-[10px] size-5" />
         }
       </motion.button>
 
       <AnimatePresence>
         {yearMenuOpen && (
           <motion.div 
-            className="absolute z-10 mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg"
+            className="absolute z-10 mt-3 w-full bg-white outline-1 outline-none outline-offset-0 outline-black rounded-[20px] shadow-lg"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-          >
-            {/* <motion.button
-              key="all"
-              className={`block w-full text-left px-4 py-2 hover:bg-gray-100 ${
-                'all' === activeYearFilter ? 'font-bold bg-gray-50 text-blue-600' : ''
-              }`}
-              onClick={() => {
-                setActiveYearFilter('all');
-                setYearMenuOpen(false);
-              }}
-              whileHover={{ x: 5 }}
-            >
-              {t('CommunityPage.filter.seeAll')}
-            </motion.button> */}
-            
+          >            
             {availableYears.filter(year => year !== 'all').map(year => (
               <motion.button
                 key={year}
-                className={`block w-full text-left px-4 py-2 hover:bg-gray-100 ${
+                className={`block w-full text-left px-4 py-2 border-1 rounded-[20px] hover:text-blue-800 ${
                   year === activeYearFilter ? 'font-bold bg-gray-50 text-blue-600' : ''
                 }`}
                 onClick={() => {

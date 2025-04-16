@@ -61,7 +61,6 @@ export default function FilterCategory() {
                               )
                       }`}
                     onClick={() => setActiveRoleFilter(role.key)}
-                    whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                 >
                     <span className='text-[17px]'>{t(role.translationKey)}</span>
