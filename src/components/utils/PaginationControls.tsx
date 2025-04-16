@@ -1,26 +1,33 @@
 'use client';
 
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import { motion } from 'framer-motion';
 
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
-  paramName: string;
+  paramName?: string;
   preserveParams?: string[];
+  onPageChange?: (page: number) => void;
+  useUrlNavigation?: boolean;
 }
 
 export default function Pagination({
   currentPage,
   totalPages,
-  paramName,
-  preserveParams = []
+  paramName = 'page',
+  preserveParams = [],
+  onPageChange,
+  useUrlNavigation = true
 }: PaginationProps) {
   const searchParams = useSearchParams();
   const t = useTranslations('Pagination');
   
   const createPageUrl = (pageNumber: number) => {
+    if (!useUrlNavigation) return '#';
+    
     const params = new URLSearchParams(searchParams.toString());
     params.set(paramName, pageNumber.toString());
     
@@ -50,43 +57,93 @@ export default function Pagination({
   
   if (totalPages <= 1) return null;
 
+  const handlePageClick = (pageNum: number) => {
+    if (onPageChange) {
+      onPageChange(pageNum);
+    }
+  };
+
   return (
-    <nav className="flex justify-center items-center gap-2 my-8" aria-label="pagination">
+    <motion.nav 
+      className="flex justify-center items-center gap-2 my-8" 
+      aria-label="pagination"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.3 }}
+    >
       {currentPage > 1 && (
-        <Link 
-          href={createPageUrl(currentPage - 1)}
-          className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
-        >
-          {t('prev')}
-        </Link>
+        useUrlNavigation ? (
+          <Link 
+            href={createPageUrl(currentPage - 1)}
+            className="px-4 py-2 bg-gray-200 rounded-full hover:bg-gray-300"
+          >
+            {t('prev')}
+          </Link>
+        ) : (
+          <motion.button
+            onClick={() => handlePageClick(currentPage - 1)}
+            className="px-4 py-2 bg-gray-200 rounded-full hover:bg-gray-300"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {t('prev')}
+          </motion.button>
+        )
       )}
       
       {getPageNumbers().map((pageNum, index) => (
         pageNum === '...' ? (
           <span key={`ellipsis-${index}`} className="px-3 py-1">...</span>
         ) : (
-          <Link
-            key={`page-${pageNum}`}
-            href={createPageUrl(pageNum as number)}
-            className={`px-3 py-1 rounded ${
-              currentPage === pageNum 
-                ? 'bg-zinc-500 text-white' 
-                : 'bg-gray-200 hover:bg-gray-300'
-            }`}
-          >
-            {pageNum}
-          </Link>
+          useUrlNavigation ? (
+            <Link
+              key={`page-${pageNum}`}
+              href={createPageUrl(pageNum as number)}
+              className={`w-10 h-10 flex items-center justify-center rounded-full ${
+                currentPage === pageNum 
+                  ? 'bg-blue-600 text-white' 
+                  : 'bg-gray-200 hover:bg-gray-300'
+              }`}
+            >
+              {pageNum}
+            </Link>
+          ) : (
+            <motion.button
+              key={`page-${pageNum}`}
+              onClick={() => handlePageClick(pageNum as number)}
+              className={`w-10 h-10 flex items-center justify-center rounded-full ${
+                currentPage === pageNum 
+                  ? 'bg-blue-600 text-white' 
+                  : 'bg-gray-200 hover:bg-gray-300'
+              }`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {pageNum}
+            </motion.button>
+          )
         )
       ))}
       
       {currentPage < totalPages && (
-        <Link 
-          href={createPageUrl(currentPage + 1)}
-          className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
-        >
-          {t('next')}
-        </Link>
+        useUrlNavigation ? (
+          <Link 
+            href={createPageUrl(currentPage + 1)}
+            className="px-4 py-2 bg-gray-200 rounded-full hover:bg-gray-300"
+          >
+            {t('next')}
+          </Link>
+        ) : (
+          <motion.button 
+            onClick={() => handlePageClick(currentPage + 1)}
+            className="px-4 py-2 bg-gray-200 rounded-full hover:bg-gray-300"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {t('next')}
+          </motion.button>
+        )
       )}
-    </nav>
+    </motion.nav>
   );
 }

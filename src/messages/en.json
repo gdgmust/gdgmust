@@ -45,7 +45,7 @@
       "buttonJoin": "Join as a GDG member",
       "buttonDiscord": "Community Discord Server"
     },
-    "filter":{
+    "filter": {
       "seeAll": "See All",
       "1": "Leader",
       "2": "Creative",
@@ -56,11 +56,24 @@
     },
     "catogorylist": {
       "1": "GDG Leader",
-      "2": "Creative Team - Leader",
-      "3": "Development Team - Leader",
+      "2": "Development Team - Leader",
+      "3": "Creative Team - Leader",
       "4": "Member Engagement - Leader",
       "5": "Outreach - Leader",
       "6": "Volunteer"
+    },
+    "yearNavigation": {
+      "noMembers": "No members found for this year.",
+      "fallbackMessage": "Showing all members as year-specific data couldn't be loaded.",
+      "memberActiveRange": "Active from {start} to {end}"
+    },
+    "team": {
+      "title": "GDG Members",
+      "description": "Meet our talented community members",
+      "searchResults": "Search results for",
+      "membersFound": "members found",
+      "noResults": "No members found",
+      "searchingAllYears": "(searching across all years)"
     }
   },
 

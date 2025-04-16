@@ -2,12 +2,12 @@
 
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import background from '../../../../public/images/community/background.png';
 import logo from '../../../../public/images/community/logo.svg';
 
-import SearchBar from '@/components/community/searchbar1';
+import SearchBar from '@/components/utils/searchbar1';
 import { IoMenu } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
 
@@ -17,42 +17,49 @@ import { CommunityProvider, useCommunity } from '@/components/community/context/
 
 import "@/styles/globals.css";
 
-// export async function generateMetadata(props: any) {
-//   return {
-//     title: "Community",
-//     description: "Join our community and connect with like-minded individuals",
-//     openGraph: {
-//       title: "Community",
-//       description: "Join our community and connect with like-minded individuals",
-//     },
-//   };
-// }
-
-export default function CommunityPage() {
-  const t = useTranslations();
+// Year selector component
+const YearSelector = () => {
   const [yearMenuOpen, setYearMenuOpen] = useState(false);
-
-  // Year selector component - will be implemented inside the provider
-  const YearSelector = () => {
-    const { activeYearFilter, setActiveYearFilter, availableYears } = useCommunity();
+  const t = useTranslations();
+  const { activeYearFilter, setActiveYearFilter, availableYears } = useCommunity();
+  
+  // Close the year dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (yearMenuOpen && !(e.target as Element).closest('.year-selector')) {
+        setYearMenuOpen(false);
+      }
+    };
     
-    return (
-      <div className="relative">
-        <motion.button 
-          className="flex justify-center items-center select-none bg-white border border-black rounded-full px-5 h-[42px]"
-          onClick={() => setYearMenuOpen(!yearMenuOpen)}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <span className="mt-[7px] text-[17px]">
-            {activeYearFilter === 'all' ? t('CommunityPage.selectyear') : activeYearFilter}
-          </span>
-          {yearMenuOpen ? 
-            <IoClose className="ml-[10px] mt-[10px] size-5" /> :
-            <IoMenu className="ml-[10px] mt-[10px] size-5" />
-          }
-        </motion.button>
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [yearMenuOpen]);
 
+  // Format the year display
+  const getYearDisplay = (year: string) => {
+    if (year === 'all') return t('CommunityPage.filter.seeAll');
+    if (year === new Date().getFullYear().toString()) return `${year} (Current)`;
+    return year;
+  };
+  
+  return (
+    <div className="relative year-selector">
+      <motion.button 
+        className="flex justify-center items-center select-none bg-white border border-black rounded-full px-5 h-[42px]"
+        onClick={() => setYearMenuOpen(!yearMenuOpen)}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <span className="mt-[7px] text-[17px]">
+          {getYearDisplay(activeYearFilter)}
+        </span>
+        {yearMenuOpen ? 
+          <IoClose className="ml-[10px] mt-[10px] size-5" /> :
+          <IoMenu className="ml-[10px] mt-[10px] size-5" />
+        }
+      </motion.button>
+
+      <AnimatePresence>
         {yearMenuOpen && (
           <motion.div 
             className="absolute z-10 mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg"
@@ -60,25 +67,44 @@ export default function CommunityPage() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
           >
-            {availableYears.map(year => (
-              <button
+            {/* <motion.button
+              key="all"
+              className={`block w-full text-left px-4 py-2 hover:bg-gray-100 ${
+                'all' === activeYearFilter ? 'font-bold bg-gray-50 text-blue-600' : ''
+              }`}
+              onClick={() => {
+                setActiveYearFilter('all');
+                setYearMenuOpen(false);
+              }}
+              whileHover={{ x: 5 }}
+            >
+              {t('CommunityPage.filter.seeAll')}
+            </motion.button> */}
+            
+            {availableYears.filter(year => year !== 'all').map(year => (
+              <motion.button
                 key={year}
                 className={`block w-full text-left px-4 py-2 hover:bg-gray-100 ${
-                  year === activeYearFilter ? 'font-bold bg-gray-50' : ''
+                  year === activeYearFilter ? 'font-bold bg-gray-50 text-blue-600' : ''
                 }`}
                 onClick={() => {
                   setActiveYearFilter(year);
                   setYearMenuOpen(false);
                 }}
               >
-                {year === 'all' ? t('CommunityPage.filter.seeAll') : year}
-              </button>
+                {getYearDisplay(year)}
+              </motion.button>
             ))}
           </motion.div>
         )}
-      </div>
-    );
-  };
+      </AnimatePresence>
+    </div>
+  );
+};
+
+// Main community page with provider
+export default function CommunityPage() {
+  const t = useTranslations();
   
   return (
     <CommunityProvider>
@@ -104,19 +130,22 @@ export default function CommunityPage() {
         </div>
 
         {/* Logo */}
-        <motion.div 
-          className="absolute top-[116px] left-1/2 transform -translate-x-1/2 flex items-center justify-center select-none md:size-max lg:size-max size-[300px]"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-        >
-          <Image
-            src={logo}
-            alt="Logo"
-            className=""
-            draggable="false"
-          />
-        </motion.div>
+        <div className="absolute w-full top-[116px] left-0 right-0 flex justify-center">
+          <motion.div 
+            className="select-none flex justify-center items-center"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          >
+            <Image
+              src={logo}
+              alt="Logo"
+              className="mx-auto max-w-[300px] md:max-w-full"
+              draggable="false"
+              priority
+            />
+          </motion.div>
+        </div>
 
         {/* Search Bar */}
         <div className="absolute top-[116px] left-1/2 transform -translate-x-1/2 flex items-center justify-center lg:mt-[438px] md:mt-[438px] mt-[388px]">
