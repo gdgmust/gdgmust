@@ -150,8 +150,8 @@
       {
         "type": "Guests of Build with AI",
         "name": "Г.Учрал",
-        "role": "TBD",
-        "bio": "TBD",
+        "role": "Crafting your LinkedIn Dev Profile with Gemini",
+        "bio": "Стратеги түншлэл хариуцсан ахлах менежер, Мэдээлэл, Технологийн Үндэсний Парк",
         "image": "/images/eventspage/buildwithai/2025-2/people/workshop/Uchral.png"
       },
       {
@@ -192,6 +192,16 @@
         "name": "Education TV",
         "logo": "/images/eventspage/buildwithai/2025-2/sponsers/edu.png",
         "url": "https://edutv.mn/"
+      },
+      {
+        "name": "Impact Mints",
+        "logo": "/images/eventspage/buildwithai/2025-2/sponsers/impactmints.png",
+        "url": "https://emonos.mn/product/14393"
+      },
+      {
+        "name": "Star Print",
+        "logo": "/images/eventspage/buildwithai/2025-2/sponsers/starprint.png",
+        "url": "https://emonos.mn/product/14393"
       },
       {
         "name": "GDG on Campus MUST",
