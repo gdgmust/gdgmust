@@ -77,14 +77,18 @@ export async function getMembers(year?: string) {
 }
 
 export function getAvailableYears() {
-  // Get current year and some previous years
+  // Define the start year (the earliest year with data)
+  const startYear = 2022; // You can adjust this to match your earliest data
   const currentYear = new Date().getFullYear();
-  // Return last 3 years including current
-  return [
-    currentYear.toString(), 
-    (currentYear-1).toString(), 
-    (currentYear-2).toString()
-  ];
+  
+  // Create array of all years from start year to current year
+  const years = [];
+  for (let year = currentYear; year >= startYear; year--) {
+    years.push(year.toString());
+  }
+  
+  // Return all years, plus an "all" option
+  return years;
 }
 
 export function getCurrentYear() {

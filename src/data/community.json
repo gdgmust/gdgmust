@@ -4,18 +4,18 @@
     "nameEN": "Purevjargal Bolor-Erdene",
     "nameMN": "Болор-Эрдэнэ Пүрэвжаргал",
     "role": "leaderof-gdg",
-    "year": "2023",
-    "sinceYear": "2023",
+    "year": "2022",
+    "sinceYear": "2022",
     "exitYear": false,
     "activeStatus": true,
     "image": "/images/community/members/2022/purevjargal.png",
-    "bioEN": "Computer Science senior with a passion for building developer communities. Has been leading GDG MUST since 2023.",
-    "bioMN": "Компьютерийн шинжлэх ухааны ахлах оюутан бөгөөд хөгжүүлэгчдийн нийгэмлэгийг байгуулах сонирхолтой. 2023 оноос GDG MUST-г удирдаж байна.",
+    "bioEN": "Computer Science senior with a passion for building developer communities. Has been leading GDG MUST since 2022.",
+    "bioMN": "Компьютерийн шинжлэх ухааны ахлах оюутан бөгөөд хөгжүүлэгчдийн нийгэмлэгийг байгуулах сонирхолтой. 2022 оноос GDG MUST-г удирдаж байна.",
     "specialties": ["Community Building", "Flutter", "Cloud"],
     "socialLinks": {
       "linkedin": "https://linkedin.com/in/ahmedhassan",
       "github": "https://github.com/ahmedhassan",
-      "twitter": "https://twitter.com/ahmedhassan"
+      "x": "https://twitter.com/ahmedhassan"
     },
     "featured": true
   },
@@ -41,10 +41,10 @@
   },
   {
     "id": "3",
-    "nameEN": "Erkhemtur Altan-Ochir",
-    "nameMN": "Алтан-Очир Эрхэмтөр",
+    "nameEN": "Erkhemtur (roaziy)",
+    "nameMN": "Эрхэмтөр (roaziy)",
     "role": "leaderof-creative",
-    "oldRole": "Designer",
+    "oldRole": "Member",
     "year": "2024",
     "sinceYear": "2024",
     "exitYear": false,
@@ -54,10 +54,13 @@
     "bioMN": "Ахлах хөгжүүлэгч бөгөөд Android болон Kotlin-д мэргэшсэн. MUST-д техникийн сургалгууд болон хакатон зохион байгуулдаг.",
     "specialties": ["UI/UX", "Figma", "Design Systems"],
     "socialLinks": {
-      "linkedin": "https://linkedin.com/in/saramohamed",
+      "linkedin": "https://linkedin.com/in/roaziy",
       "facebook": "https://facebook.com/erkhemtur",
       "instagram": "https://instagram.com/roaziy",
-      "website": "https://erkhemtur.netlify.app"
+      "x": "https://x.com/roaziy",
+      "website": "https://erkhemtur.netlify.app",
+      "github": "https://github.com/roaziy",
+      "google": "https://g.dev/roaziy"
     },
     "featured": true
   },
@@ -66,11 +69,10 @@
     "nameEN": "Munkhtuya",
     "nameMN": "Мөнхтуяа",
     "role": "leaderof-outreach",
-    "oldRole": "Member Engagement",
     "year": "2023",
     "sinceYear": "2023",
-    "exitYear": "2024",
-    "activeStatus": false,
+    "exitYear": false,
+    "activeStatus": true,
     "image": "/images/community/members/2023/munkhtuya.png",
     "bioEN": "Front-end developer with expertise in React and Next.js. Passionate about web performance and modern JavaScript.",
     "bioMN": "Ахлах хөгжүүлэгч бөгөөд Android болон Kotlin-д мэргэшсэн. MUST-д техникийн сургалгууд болон хакатон зохион байгуулдаг.",

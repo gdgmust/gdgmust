@@ -2,7 +2,10 @@
 
 import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
-import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaXTwitter, FaFacebook, FaInstagram } from "react-icons/fa6";
+import { IoLogoGoogle } from "react-icons/io5";
+import { TbWorld } from "react-icons/tb";
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCommunity } from '@/components/community/context/CommunityContext';
 import CommunityPagination from './CommunityPagination';
@@ -24,9 +27,10 @@ interface Member {
   exitYear?: string | boolean;
   activeStatus?: boolean;
   socialLinks?: {
-    twitter?: string;
+    x?: string;
     linkedin?: string;
     github?: string;
+    google?: string;
     facebook?: string;
     instagram?: string;
     website?: string;
@@ -163,16 +167,16 @@ function MemberCard({ member, index }: { member: Member, index: number }) {
         
         {member.socialLinks && (
           <div className="flex space-x-4 pt-3 border-t border-gray-100">
-            {member.socialLinks.twitter && (
+            {member.socialLinks.x && (
               <motion.a 
-                href={member.socialLinks.twitter} 
+                href={member.socialLinks.x} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-blue-400 transition-colors"
+                className="text-gray-500 hover:text-black transition-colors"
                 whileHover={{ scale: 1.2}}
                 draggable="false"
               >
-                <FaTwitter size={20} />
+                <FaXTwitter size={20} />
               </motion.a>
             )}
             {member.socialLinks.linkedin && (
@@ -187,6 +191,30 @@ function MemberCard({ member, index }: { member: Member, index: number }) {
                 <FaLinkedin size={20} />
               </motion.a>
             )}
+            {member.socialLinks.facebook && (
+              <motion.a 
+                href={member.socialLinks.facebook} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-blue-700 transition-colors"
+                whileHover={{ scale: 1.2}}
+                draggable="false"
+              >
+                <FaFacebook size={20} />
+              </motion.a>
+            )}
+            {member.socialLinks.instagram && (
+              <motion.a 
+                href={member.socialLinks.instagram} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-pink-400 transition-colors"
+                whileHover={{ scale: 1.2}}
+                draggable="false"
+              >
+                <FaInstagram size={20} />
+              </motion.a>
+            )}
             {member.socialLinks.github && (
               <motion.a 
                 href={member.socialLinks.github} 
@@ -197,6 +225,30 @@ function MemberCard({ member, index }: { member: Member, index: number }) {
                 draggable="false"
               >
                 <FaGithub size={20} />
+              </motion.a>
+            )}
+            {member.socialLinks.google && (
+              <motion.a 
+                href={member.socialLinks.google} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-black transition-colors"
+                whileHover={{ scale: 1.2}}
+                draggable="false"
+              >
+                <IoLogoGoogle size={20} />
+              </motion.a>
+            )}
+            {member.socialLinks.website && (
+              <motion.a 
+                href={member.socialLinks.website} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-blue-700 transition-colors"
+                whileHover={{ scale: 1.2}}
+                draggable="false"
+              >
+                <TbWorld size={20} />
               </motion.a>
             )}
           </div>

@@ -20,9 +20,10 @@ interface Member {
   exitYear?: string | boolean;  // When the member left (year or false)
   activeStatus?: boolean;       // If the member is still active
   socialLinks?: {
-    twitter?: string;
+    x?: string;
     linkedin?: string;
     github?: string;
+    google?: string;
     facebook?: string;
     instagram?: string;
     website?: string;
