@@ -24,9 +24,10 @@ export const navItems = [
     anchor: '',
     subItems: [
       // { label: 'Projects', anchor: '/projects' },
-      { label: 'Merch', anchor: '/merch' },
+      // { label: 'Merch', anchor: '/merch' },
       // { label: 'Policy', anchor: '/policy' },
-      { label: 'Contact Us', anchor: '/contact' }
+      // { label: 'Contact Us', anchor: '/contact' }
+      { label: 'Contact Us', anchor: '/building' }
     ]
   }
 ];
