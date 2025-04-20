@@ -85,7 +85,7 @@
     "mapsLink": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2248.3346434998925!2d106.92384271976452!3d47.92215405218282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d969240515d3557%3A0xc3affbfcce02c6ce!2sMongolian%20University%20of%20Science%20and%20Technology!5e0!3m2!1sen!2smn!4v1744443902416!5m2!1sen!2smn",
     "mapsLinkButton": "https://maps.app.goo.gl/fnZYiwq9m8qtEuVD9",
     "image": "/images/eventspage/buildwithai/2025-2/banner.png",
-    "ticketsAvailable": true,
+    "ticketsAvailable": false,
     "ticketPrice": 40000,
     "ticketCurrency": "₮",
     "maxAttendees": 100,
