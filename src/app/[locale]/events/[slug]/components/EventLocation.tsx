@@ -22,7 +22,7 @@ export default function EventLocation({ event }: EventLocationProps) {
           <p className="text-gray-600">• {event.exactLocation}</p>
         </div>
       )}
-      <div className="bg-gray-100 rounded-xl p-4 mb-6 flex items-center justify-center h-[350px] overflow-hidden">
+      <div className="bg-gray-100 rounded-xl p-4 mb-6 flex items-center justify-center h-[350px] overflow-hidden select-none" draggable="false">
         {event.mapsLink ? (
           <iframe 
             src={event.mapsLink}

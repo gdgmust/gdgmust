@@ -19,14 +19,14 @@ const Footer = () => {
         {/* Right Section */}
         <div className="flex flex-col items-center lg:items-end mt-8 lg:mt-0" draggable="false">
           <div className="flex space-x-4 text-[23px]" draggable="false">
-            <a href="https://www.facebook.com/gdgcmust/" target="_blank" rel="noopener noreferrer">
-              <FaFacebook className="lg:hover:text-gray-500 md:hover:text-gray-500" />
+            <a href="https://www.facebook.com/gdgcmust/" target="_blank" rel="noopener noreferrer" draggable="false">
+              <FaFacebook className="lg:hover:text-gray-500 md:hover:text-gray-500 select-none" />
             </a>
-            <a href="https://www.instagram.com/gdg.must/" target="_blank" rel="noopener noreferrer">
-              <FaInstagram className="text-[24px]  lg:hover:text-gray-500 md:hover:text-gray-500" />
+            <a href="https://www.instagram.com/gdg.must/" target="_blank" rel="noopener noreferrer" draggable="false">
+              <FaInstagram className="text-[24px] lg:hover:text-gray-500 md:hover:text-gray-500 select-none" />
             </a>
-            <a href="https://www.linkedin.com/company/gdgmust/" target="_blank" rel="noopener noreferrer">
-              <FaLinkedinIn className=" lg:hover:text-gray-500 md:hover:text-gray-500 text-[24px]" />
+            <a href="https://www.linkedin.com/company/gdgmust/" target="_blank" rel="noopener noreferrer" draggable="false">
+              <FaLinkedinIn className=" lg:hover:text-gray-500 md:hover:text-gray-500 text-[24px] select-none" />
             </a>
           </div>
           <div className="mt-6 lg:mt-0 md:mt-6 sm:mt-6 text-center lg:text-right" draggable="false">
@@ -34,7 +34,7 @@ const Footer = () => {
             <p className="text-[15px] -mt-[6px] flex items-center justify-end">
               Made with <Image src={pixelHeart} alt="Pixel Heart" width={15} height={15} draggable="false" className="mx-1 select-none" /> in UB © 2025
             </p>
-            <p className="text-[14px] -mt-[6.5px]">Developed by <a href="https://www.instagram.com/roaziy/" target="_blank" rel="noopener noreferrer"><span className="font-bold" >roaziy</span></a></p>
+            <p className="text-[14px] -mt-[6.5px]">Developed by <a href="https://www.instagram.com/roaziy/" target="_blank" rel="noopener noreferrer" draggable="false"><span className="font-bold select-none" >roaziy</span></a></p>
           </div>
         </div>
       </div>
