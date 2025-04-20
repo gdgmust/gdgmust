@@ -3,9 +3,23 @@ import eventsData from '@/data/events.json';
 import membersData from '@/data/community.json';
 
 export async function getEvents() {
-  // Currently returns local JSON
-  // Later will fetch from API endpoint
-  return eventsData;
+  // Get current date for status comparison
+  const currentDate = new Date();
+  
+  // Make a copy of the events and update the status based on date
+  const updatedEvents = eventsData.map(event => {
+    const eventDate = new Date(event.date);
+    // Determine if the event is upcoming or past
+    const status = eventDate > currentDate ? 'upcoming' : 'past';
+    
+    // Return a new object with updated status
+    return {
+      ...event,
+      status
+    };
+  });
+  
+  return updatedEvents;
 }
 
 export async function getMembers(year?: string) {
