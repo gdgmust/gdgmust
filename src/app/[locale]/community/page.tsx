@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import background from '../../../../public/images/community/background.png';
 import logo from '../../../../public/images/community/logo.svg';
 
-import SearchBar from '@/components/utils/searchbar1';
+import SearchBar from '@/components/community/searchbar1';
 import { IoMenu } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
 
@@ -38,18 +38,19 @@ const YearSelector = () => {
   // Format the year display
   const getYearDisplay = (year: string) => {
     if (year === 'all') return t('CommunityPage.filter.seeAll');
-    if (year === new Date().getFullYear().toString()) return `${year} (Current)`;
+    if (year === new Date().getFullYear().toString()) return `${year} (${t('CommunityPage.filter.thisYear')})`;
     return year;
   };
   
   return (
     <div className="relative year-selector">
       <motion.button 
+        draggable="false"
         className="flex justify-center items-center select-none bg-white border border-black rounded-full px-5 h-[42px]"
         onClick={() => setYearMenuOpen(!yearMenuOpen)}
         whileTap={{ scale: 0.95 }}
       >
-        <span className="mt-[2px] text-[17px]">
+        <span className="mt-[2px] text-[17px] select-none" draggable="false">
           {getYearDisplay(activeYearFilter)}
         </span>
         {yearMenuOpen ? 
@@ -118,9 +119,9 @@ export default function CommunityPage() {
         <div className="absolute w-full top-[116px] left-0 right-0 flex justify-center">
           <motion.div 
             className="select-none flex justify-center items-center"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
+            // initial={{ opacity: 0, scale: 0.8 }}
+            // // animate={{ opacity: 1, scale: 1 }}
+            // transition={{ delay: 0.3, duration: 0.8 }}
           >
             <Image
               src={logo}

@@ -114,7 +114,7 @@ export default function Navbar() {
                             {item.subItems.length > 0 && (hovered === index || isSubmenuOpen) && (
                                 <motion.div
                                     id={`submenu-${index}`}
-                                    className="absolute -left-[10px] mt-4 bg-white rounded-2xl border shadow-[0px_1px_7px] backdrop-blur-md shadow-gray-300/80 py-1 min-w-[124px] z-50 overflow-hidden select-none"
+                                    className="absolute -left-[20px] mt-4 bg-white rounded-2xl border shadow-[0px_1px_7px] backdrop-blur-md shadow-gray-300/80 py-1 min-w-[124px] z-50 overflow-hidden select-none"
                                     initial={{ opacity: 0, y: -10, scale: 0.95, transformOrigin: "top center" }}
                                     animate={{ opacity: 1, y: 0, scale: 1 }}
                                     exit={{ opacity: 0, y: -10, scale: 0.95, transition: { duration: 0.2 } }}
@@ -130,22 +130,22 @@ export default function Navbar() {
                                         {item.subItems.map((sub, subIndex) => (
                                             <motion.button
                                                 key={sub.label}
-                                                className="w-full text-left px-4 py-3 rounded-xl hover:bg-black/5 transition-all whitespace-nowrap flex items-center select-none"
+                                                className="w-full text-left px-4 py-3 rounded-xl hover:font-bold transition-all whitespace-nowrap flex items-center select-none"
                                                 onClick={(e) => {
                                                     e.preventDefault();
                                                     setHovered(null);
                                                     setIsSubmenuOpen(false);
                                                     router.replace(`/${locale}${sub.anchor}`);
                                                 }}
-                                                initial={{ opacity: 0, x: -10 }}
+                                                initial={{ opacity: 0, x: 0 }}
                                                 animate={{ opacity: 1, x: 0 }}
                                                 transition={{ 
                                                     delay: 0.03 * subIndex,
                                                     duration: 0.2,
                                                 }}
                                                 whileHover={{ 
-                                                    backgroundColor: "rgba(0,0,0,0.06)", 
-                                                    scale: 1.02 
+                                                    // backgroundColor: "rgba(0,0,0,0.06)", 
+                                                    scale: 1.05 
                                                 }}
                                                 whileTap={{ scale: 0.98 }}
                                             >

@@ -46,22 +46,39 @@
       "buttonDiscord": "Community Discord Server"
     },
     "filter": {
+      "thisYear": "Current",
       "seeAll": "See All",
       "1": "Leader",
-      "2": "Creative",
-      "3": "Development",
+      "2": "Development",
+      "3": "Creative",
       "4": "Member Engagement",
       "5": "Outreach",
       "6": "Volunteer"
     },
-    "catogorylist": {
+    "catogorylist-leader": {
       "1": "GDG Leader",
       "2": "Development Team - Leader",
       "3": "Creative Team - Leader",
       "4": "Member Engagement - Leader",
-      "5": "Outreach - Leader",
-      "6": "Volunteer"
+      "5": "Outreach - Leader"
     },
+    "catogorylist-member": {
+      "1": "Developer Team - Member",
+      "2": "Creative Team - Member",
+      "3": "Member Engagement - Member",
+      "4": "Outreach - Member",
+      "5": "Volunteer"
+    },
+    "formermember": {
+      "member": "Member",
+      "new": "New member",
+      "since": "Member since",
+      "joined": "Joined"
+    },
+    "previously": {
+      "1": "Previously",
+      "2": ""
+    }, 
     "yearNavigation": {
       "noMembers": "No members found for this year.",
       "fallbackMessage": "Showing all members as year-specific data couldn't be loaded.",

@@ -79,16 +79,16 @@ function MemberCard({ member, index }: { member: Member, index: number }) {
   
   if (isFormerMember) {
     // If they've left the club
-    memberStatus = `Member ${joinYear}-${member.exitYear}`;
+    memberStatus = `${t('CommunityPage.formermember.member')} ${joinYear}-${member.exitYear}`;
   } else if (joinYear === activeYearFilter) {
     // If they joined this year
-    memberStatus = `New member (${joinYear})`;
+    memberStatus = `${t('CommunityPage.formermember.new')} (${joinYear})`;
   } else if (joinYear && parseInt(joinYear) < parseInt(activeYearFilter || '0')) {
     // If they joined before this year and are still active
-    memberStatus = `Member since ${joinYear}`;
+    memberStatus = `${t('CommunityPage.formermember.since')} (${joinYear})`;
   } else {
     // Default
-    memberStatus = `Joined ${joinYear}`;
+    memberStatus = `${t('CommunityPage.formermember.joined')} ${joinYear}`;
   }
   
   // Special case for "all" filter
@@ -102,153 +102,195 @@ function MemberCard({ member, index }: { member: Member, index: number }) {
     }
   }
   
+  let roleClass = "border-blue-600"; // Default border color
+
+  if (member.role === "leaderof-gdg") {
+    roleClass = "border-red-600";
+  } else if (["leaderof-development", "memberof-development"].includes(member.role)) {
+    roleClass = "border-blue-400";
+  } else if (["leaderof-creative", "memberof-creative"].includes(member.role)) {
+    roleClass = "border-green-400";
+  } else if (["leaderof-engagement", "memberof-engagement"].includes(member.role)) { 
+    roleClass = "border-orange-400";
+  } else if (["leaderof-outreach", "memberof-outreach"].includes(member.role)) {
+    roleClass = "border-[#fc03c6]";
+  }
+
   return (
     <motion.div 
       layout
-      className={`bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform w-[325px] h-[550px]
-        ${(isFormerMember || member.activeStatus === false) ? 'opacity-75' : ''}`}
+      className={`bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 transform w-[325px] h-[570px] ${roleClass} border-[1.2px]
+      md:hover:w-[380px] md:hover:shadow-lg flex flex-col
+      ${(isFormerMember || member.activeStatus === false) ? 'opacity-75' : ''}`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.3, delay: index * 0.05 }}
       key={member.id}
     >
-      {member.image ? (
+      <div className='cursor-pointer'>
+        {member.image ? (
         <div className="relative h-[280px] w-full">
           <Image 
-            src={member.image} 
-            alt={getMemberName()}
-            fill
-            draggable="false"
-            style={{objectFit: 'cover'}}
-            className="transition-all duration-500 rounded-xl hover:scale-105 select-none"
+          src={member.image} 
+          alt={getMemberName()}
+          fill
+          draggable="false"
+          style={{objectFit: 'cover'}}
+          className="transition-all duration-500 select-none"
           />
         </div>
-      ) : (
+        ) : (
         <div className="bg-blue-100 h-64 flex items-center justify-center">
           <div className="bg-blue-200 rounded-full p-8">
-            <span className="text-4xl font-bold text-blue-500">
-              {getMemberName().charAt(0)}
-            </span>
+          <span className="text-4xl font-bold text-blue-500">
+            {getMemberName().charAt(0)}
+          </span>
           </div>
         </div>
-      )}
-      <div className="p-6">
-        <h3 className="text-xl font-bold text-gray-900">{getMemberName()}</h3>
-        {member.role === "leaderof-gdg" ? (
-          <p className="text-red-600">{t('CommunityPage.catogorylist.1')}</p>
-        ) : 
-        member.role === "leaderof-development" ? (
-          <p className="text-blue-400">{t('CommunityPage.catogorylist.2')}</p>
-        ) : 
-        member.role === "leaderof-creative" ? (
-          <p className="text-green-400">{t('CommunityPage.catogorylist.3')}</p>
-        ) : 
-        member.role === "leaderof-engagement" ? (
-          <p className="text-orange-400">{t('CommunityPage.catogorylist.4')}</p>
-        ) : 
-        member.role === "leaderof-outreach" ? (
-          <p className="text-[#fc03c6]">{t('CommunityPage.catogorylist.5')}</p>
-        ) : (
-          <p className="text-blue-600">{member.role}</p>
         )}
+      </div>
+      <div className="px-6 pt-6 cursor-pointer flex-grow">
+        <h3 className="text-xl -mt-1 font-bold text-gray-900">{getMemberName()}</h3>
         
+        {/* Display the role with appropriate color */}
+        <div className='mt-[6px]'>
+          {member.role === "leaderof-gdg" ? (
+            <p className="text-red-600">{t('CommunityPage.catogorylist-leader.1')}</p>
+          ) : 
+          member.role === "leaderof-development" ? (
+            <p className="text-blue-400">{t('CommunityPage.catogorylist-leader.2')}</p>
+          ) : 
+          member.role === "leaderof-creative" ? (
+            <p className="text-green-400">{t('CommunityPage.catogorylist-leader.3')}</p>
+          ) : 
+          member.role === "leaderof-engagement" ? (
+            <p className="text-orange-400">{t('CommunityPage.catogorylist-leader.4')}</p>
+          ) : 
+          member.role === "leaderof-outreach" ? (
+            <p className="text-[#fc03c6]">{t('CommunityPage.catogorylist-leader.5')}</p>
+          ) : 
+          member.role === "memberof-development" ? (
+            <p className="text-blue-400">{t('CommunityPage.catogorylist-member.1')}</p>
+          ) : 
+          member.role === "memberof-creative" ? (
+            <p className="text-green-400">{t('CommunityPage.catogorylist-member.2')}</p>
+          ) : 
+          member.role === "memberof-engagement" ? (
+            <p className="text-orange-400">{t('CommunityPage.catogorylist-member.3')}</p>
+          ) : 
+          member.role === "memberof-outreach" ? (
+            <p className="text-[#fc03c6]">{t('CommunityPage.catogorylist-member.4')}</p>
+          ) : 
+          member.role === "volunteer" ? (
+            <p className="text-neutral-600">{t('CommunityPage.catogorylist-member.5')}</p>
+          ) : (
+            <p className="text-neutral-600">{member.role}</p>
+          )}
+        </div>
+
+
         {/* Display previous role if available */}
         {member.oldRole && (
           <p className="text-gray-500 text-sm">
-            Previously: {member.oldRole}
+          {t('CommunityPage.previously.1')} {member.oldRole} {t('CommunityPage.previously.2')} 
           </p>
         )}
         
         <p className='text-zinc-600 mb-3 text-[15px]'>
           {memberStatus}
         </p>
-        {getMemberBio() && <p className="text-gray-600 mb-4 line-clamp-3">{getMemberBio()}</p>}
-        
-        {member.socialLinks && (
+        <div className='mt-4'>
+          {getMemberBio() && <p className="text-gray-600 w-[275px] mb-4 line-clamp-3">{getMemberBio()}</p>}
+        </div>
+      </div>
+      
+      {/* Social links at the bottom */}
+      <div className="mt-auto px-6 pb-5">
+        {member.socialLinks && Object.keys(member.socialLinks).length > 0 && (
           <div className="flex space-x-4 pt-3 border-t border-gray-100">
             {member.socialLinks.x && (
               <motion.a 
-                href={member.socialLinks.x} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-black transition-colors"
-                whileHover={{ scale: 1.2}}
-                draggable="false"
+              href={member.socialLinks.x} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-black transition-colors"
+              whileHover={{ scale: 1.2}}
+              draggable="false"
               >
-                <FaXTwitter size={20} />
+              <FaXTwitter size={20} />
               </motion.a>
             )}
             {member.socialLinks.linkedin && (
               <motion.a 
-                href={member.socialLinks.linkedin} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-blue-700 transition-colors"
-                whileHover={{ scale: 1.2}}
-                draggable="false"
+              href={member.socialLinks.linkedin} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-blue-700 transition-colors"
+              whileHover={{ scale: 1.2}}
+              draggable="false"
               >
-                <FaLinkedin size={20} />
+              <FaLinkedin size={20} />
               </motion.a>
             )}
             {member.socialLinks.facebook && (
               <motion.a 
-                href={member.socialLinks.facebook} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-blue-700 transition-colors"
-                whileHover={{ scale: 1.2}}
-                draggable="false"
+              href={member.socialLinks.facebook} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-blue-700 transition-colors"
+              whileHover={{ scale: 1.2}}
+              draggable="false"
               >
-                <FaFacebook size={20} />
+              <FaFacebook size={20} />
               </motion.a>
             )}
             {member.socialLinks.instagram && (
               <motion.a 
-                href={member.socialLinks.instagram} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-pink-400 transition-colors"
-                whileHover={{ scale: 1.2}}
-                draggable="false"
+              href={member.socialLinks.instagram} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-pink-400 transition-colors"
+              whileHover={{ scale: 1.2}}
+              draggable="false"
               >
-                <FaInstagram size={20} />
+              <FaInstagram size={20} />
               </motion.a>
             )}
             {member.socialLinks.github && (
               <motion.a 
-                href={member.socialLinks.github} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-black transition-colors"
-                whileHover={{ scale: 1.2}}
-                draggable="false"
+              href={member.socialLinks.github} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-black transition-colors"
+              whileHover={{ scale: 1.2}}
+              draggable="false"
               >
-                <FaGithub size={20} />
+              <FaGithub size={20} />
               </motion.a>
             )}
             {member.socialLinks.google && (
               <motion.a 
-                href={member.socialLinks.google} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-black transition-colors"
-                whileHover={{ scale: 1.2}}
-                draggable="false"
+              href={member.socialLinks.google} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-black transition-colors"
+              whileHover={{ scale: 1.2}}
+              draggable="false"
               >
-                <IoLogoGoogle size={20} />
+              <IoLogoGoogle size={20} />
               </motion.a>
             )}
             {member.socialLinks.website && (
               <motion.a 
-                href={member.socialLinks.website} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-blue-700 transition-colors"
-                whileHover={{ scale: 1.2}}
-                draggable="false"
+              href={member.socialLinks.website} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-blue-700 transition-colors"
+              whileHover={{ scale: 1.2}}
+              draggable="false"
               >
-                <TbWorld size={20} />
+              <TbWorld size={20} />
               </motion.a>
             )}
           </div>

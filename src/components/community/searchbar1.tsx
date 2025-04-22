@@ -1,82 +1,94 @@
 'use client';
 
-import { useRouter, useSearchParams } from 'next/navigation';
-import { useState, useEffect } from 'react';
-import { IoSearch } from "react-icons/io5";
-import { IoClose } from "react-icons/io5";
-import { useTranslations } from "next-intl";
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaSearch, FaTimes } from 'react-icons/fa';
+import { useCommunity } from '@/components/community/context/CommunityContext';
+import { useTranslations } from 'next-intl';
 
 export default function SearchBar() {
-  const t = useTranslations();
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const [query, setQuery] = useState(searchParams.get('search') || '');
-  const [debouncedQuery, setDebouncedQuery] = useState(query);
+  const [searchInput, setSearchInput] = useState('');
+  const { setSearchQuery } = useCommunity();
+  const searchRef = useRef<HTMLInputElement>(null);
+  const t = useTranslations('CommunityPage');
+  const [isFocused, setIsFocused] = useState(false);
   
-  // Debounce search input
+  // Debounce search input to avoid excessive filtering
   useEffect(() => {
     const timer = setTimeout(() => {
-      setDebouncedQuery(query);
+      setSearchQuery(searchInput);
     }, 300);
     
     return () => clearTimeout(timer);
-  }, [query]);
-  
-  // Update URL when search changes
-  useEffect(() => {
-    const params = new URLSearchParams(searchParams.toString());
-  
-    if (debouncedQuery) {
-      params.set('search', debouncedQuery);
-      // Reset pagination only if a real search is happening
-      params.delete('upcomingPage');
-      params.delete('pastPage');
-    } else {
-      params.delete('search');
-      // Keep upcomingPage/pastPage if no search query
-    }
-  
-    router.push(`?${params.toString()}`);
-  }, [debouncedQuery, router, searchParams]);
+  }, [searchInput, setSearchQuery]);
 
-  const handleClearSearch = () => {
-    setQuery('');
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchInput(e.target.value);
   };
-  
-  const handleSearch = () => {
-    setDebouncedQuery(query);
+
+  const clearSearch = () => {
+    setSearchInput('');
+    setSearchQuery('');
+    if (searchRef.current) {
+      searchRef.current.focus();
+    }
   };
-  
+
   return (
-    <div className="lg:w-[350px] w-[320px] md:w-[345px] select-none"
-    draggable="false">
-      <div className="flex items-center relative h-[46px] w-full bg-white rounded-full border border-black px-1">
+    <motion.div 
+      className="relative w-[350px] md:w-[450px] lg:w-[500px]"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <motion.div
+        className="relative"
+        // whileHover={{ scale: 1 }}
+        // animate={{ scale: isFocused ? 1.02 : 1 }}
+        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+      >
         <input
+          ref={searchRef}
           type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder={t('CommunityPage.SearchBar.text')}
-          className="flex-grow ml-2 mb-[2px] h-full bg-transparent outline-none text-base placeholder-zinc-300 select-none"
-          onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+          value={searchInput}
+          onChange={handleChange}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
+          placeholder={t('SearchBar.text')}
+          className="w-full p-4 pl-12 pr-10 rounded-full border-2 border-gray-200 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all duration-300"
         />
-        {query ? (
-          <button 
-            onClick={handleClearSearch}
-            className="flex items-center justify-center bg-zinc-300 w-9 h-9 rounded-full"
-            aria-label="Clear search"
+        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <FaSearch className="h-5 w-5 text-gray-400" />
+        </div>
+        
+        <AnimatePresence>
+          {searchInput && (
+            <motion.button
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.2 }}
+              onClick={clearSearch}
+              className="absolute inset-y-0 right-0 pr-3 flex items-center"
+            >
+              <FaTimes className="h-5 w-5 text-gray-400 hover:text-gray-600" />
+            </motion.button>
+          )}
+        </AnimatePresence>
+      </motion.div>
+      
+      <AnimatePresence>
+        {searchInput && (
+          <motion.div 
+            className="absolute mt-2 text-sm text-gray-500"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
           >
-            <IoClose className="scale-125" />
-          </button>
-        ) : (
-          <button 
-            onClick={handleSearch}
-            className="flex items-center justify-center bg-zinc-300 w-9 h-9 rounded-full"
-            aria-label="Search"
-          >
-            <IoSearch className="scale-125" />
-          </button>
+            {t('SearchBar.searching')}
+          </motion.div>
         )}
-      </div>
-    </div>
+      </AnimatePresence>
+    </motion.div>
   );
 }

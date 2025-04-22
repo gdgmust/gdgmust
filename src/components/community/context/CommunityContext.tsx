@@ -38,14 +38,14 @@ interface CommunityContextType {
   members: Member[];
   filteredMembers: Member[];
   isLoading: boolean;
-  activeRoleFilter: string;
+  activeRoleFilter: string | string[];  // Updated to allow string array
   activeYearFilter: string;
   searchQuery: string;
   currentPage: number;
   itemsPerPage: number;
   totalPages: number;
   setCurrentPage: (page: number) => void;
-  setActiveRoleFilter: (role: string) => void;
+  setActiveRoleFilter: (role: string | string[]) => void; // Updated to allow string array
   setActiveYearFilter: (year: string) => void;
   setSearchQuery: (query: string) => void;
   availableRoles: string[];
@@ -63,7 +63,7 @@ export function CommunityProvider({ children }: { children: ReactNode }) {
   const [filteredMembers, setFilteredMembers] = useState<Member[]>([]);
   const [paginatedMembers, setPaginatedMembers] = useState<Member[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [activeRoleFilter, setActiveRoleFilter] = useState('all');
+  const [activeRoleFilter, setActiveRoleFilter] = useState<string | string[]>('all');
   const [activeYearFilter, setActiveYearFilter] = useState(getCurrentYear()); // Default to current year
   const [searchQuery, setSearchQuery] = useState('');
   const [availableRoles, setAvailableRoles] = useState<string[]>([]);
@@ -159,7 +159,13 @@ export function CommunityProvider({ children }: { children: ReactNode }) {
       
       // Apply role filter if needed
       if (activeRoleFilter !== 'all') {
-        result = result.filter(member => member.role === activeRoleFilter);
+        if (Array.isArray(activeRoleFilter)) {
+          // Filter for members whose role is in the activeRoleFilter array
+          result = result.filter(member => activeRoleFilter.includes(member.role));
+        } else {
+          // Filter for exact role match
+          result = result.filter(member => member.role === activeRoleFilter);
+        }
       }
     } else {
       // No search query, just use members from the selected year
@@ -167,7 +173,13 @@ export function CommunityProvider({ children }: { children: ReactNode }) {
       
       // Apply role filter
       if (activeRoleFilter !== 'all') {
-        result = result.filter(member => member.role === activeRoleFilter);
+        if (Array.isArray(activeRoleFilter)) {
+          // Filter for members whose role is in the activeRoleFilter array
+          result = result.filter(member => activeRoleFilter.includes(member.role));
+        } else {
+          // Filter for exact role match
+          result = result.filter(member => member.role === activeRoleFilter);
+        }
       }
     }
     

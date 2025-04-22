@@ -66,6 +66,25 @@
   },
   {
     "id": "4",
+    "nameEN": "Test",
+    "nameMN": "Тест",
+    "role": "leaderof-engagement",
+    "sinceYear": "2024",
+    "exitYear": false,
+    "activeStatus": true,
+    "image": "/images/community/members/2024/gerel.JPG",
+    "bioEN": "Front-end developer with expertise in React and Next.js. Passionate about web performance and modern JavaScript.",
+    "bioMN": "Ахлах хөгжүүлэгч бөгөөд Android болон Kotlin-д мэргэшсэн. MUST-д техникийн сургалгууд болон хакатон зохион байгуулдаг.",
+    "specialties": ["React", "Next.js", "TypeScript"],
+    "socialLinks": {
+      "linkedin": "https://linkedin.com/in/omarkhaled",
+      "github": "https://github.com/omarkhaled",
+      "website": "https://omarkhaled.dev"
+    },
+    "featured": true
+  },
+  {
+    "id": "5",
     "nameEN": "Munkhtuya",
     "nameMN": "Мөнхтуяа",
     "role": "leaderof-outreach",
@@ -85,7 +104,7 @@
     "featured": true
   },
   {
-    "id": "5",
+    "id": "6",
     "nameEN": "Sukhbat",
     "nameMN": "Сүхбат",
     "role": "memberof-outreach",
@@ -93,6 +112,25 @@
     "exitYear": "2024",
     "activeStatus": false,
     "image": "/images/community/members/2022/suhbat.png",
+    "bioEN": "Front-end developer with expertise in React and Next.js. Passionate about web performance and modern JavaScript.",
+    "bioMN": "Ахлах хөгжүүлэгч бөгөөд Android болон Kotlin-д мэргэшсэн. MUST-д техникийн сургалгууд болон хакатон зохион байгуулдаг.",
+    "specialties": ["React", "Next.js", "TypeScript"],
+    "socialLinks": {
+      "linkedin": "https://linkedin.com/in/omarkhaled",
+      "github": "https://github.com/omarkhaled",
+      "website": "https://omarkhaled.dev"
+    },
+    "featured": true
+  },
+  {
+    "id": "7",
+    "nameEN": "Gerel",
+    "nameMN": "Гэрэл",
+    "role": "memberof-creative",
+    "sinceYear": "2024",
+    "exitYear": false,
+    "activeStatus": true,
+    "image": "/images/community/members/2024/gerel.JPG",
     "bioEN": "Front-end developer with expertise in React and Next.js. Passionate about web performance and modern JavaScript.",
     "bioMN": "Ахлах хөгжүүлэгч бөгөөд Android болон Kotlin-д мэргэшсэн. MUST-д техникийн сургалгууд болон хакатон зохион байгуулдаг.",
     "specialties": ["React", "Next.js", "TypeScript"],
