@@ -60,12 +60,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #0084ff;
+  background: #7c7c7c;
   /* border-radius: 10px; */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0068c9;
+  background: #555555;
 }
 
 /* Add these @font-face declarations properly */
