@@ -36,7 +36,7 @@
     "src/components/utils/CustomCursor/FlareCursor.tsx",
     "src/components/footer/FooterNEW.tsx",
     "src/app/[locale]/loading.tsx",
-    "src/app/[locale]/community/members"
+    "src/app/[locale]/community/members",
   ],
   "exclude": [
     "node_modules"

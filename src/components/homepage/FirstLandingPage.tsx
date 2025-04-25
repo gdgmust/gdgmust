@@ -9,6 +9,9 @@ import { FaAngleDoubleDown } from "react-icons/fa";
 
 import CircularText from './CircularText';
 
+import { ModelBackground } from './3DModelBg';
+import { Suspense } from 'react'
+
 const zenTokyoZoo = Zen_Tokyo_Zoo({
     subsets: ['latin'],
     weight: '400',
@@ -44,6 +47,9 @@ const tinos = Tinos({
 export default function FirstLandingPage() {
     return (
         <div className="w-full h-screen select-none bg-[#D9D9D9]" draggable="false">
+            <Suspense fallback={null}>
+                <ModelBackground />
+            </Suspense>
             <div className="absolute top-[67px] ml-[52px] select-none">
                 <p className="text-[14px] -mt-10">
                     *cool landing page btw
