@@ -6,8 +6,6 @@ import { useRouter, usePathname } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import { navItems } from "../navItems";
 
-import { pauseThreeJsAnimations, resumeThreeJsAnimations } from '@/components/homepage/wave';
-
 export default function Navbar() {
     const locale = useLocale();
     const [selected, setSelected] = useState<number | null>(null);
@@ -19,17 +17,7 @@ export default function Navbar() {
     const router = useRouter();
 
     const widths = [80, 85, 110, 85, 82];
-    const positions = [4, 77, 159, 267, 345];
-
-    const handleMenuOpen = () => {
-        pauseThreeJsAnimations();
-        // existing menu open logic
-      };
-      
-      const handleMenuClose = () => {
-        resumeThreeJsAnimations();
-        // existing menu close logic
-      };    
+    const positions = [4, 77, 159, 267, 345];   
 
     useEffect(() => {
         let index = navItems.findIndex(item => pathname.toLowerCase().includes(item.label.toLowerCase()));

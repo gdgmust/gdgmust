@@ -2,7 +2,7 @@
 
 import React, { ReactNode, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import WaveDots from './wave';
+import FirstLandingPage from './FirstLandingPage';
 import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
 import {Link} from '@/i18n/routing';
@@ -11,13 +11,13 @@ import "@/styles/globals.css";
 
 const IMG_PADDING = 12;
 
-export const TextIntroduction = ({
-  subheading,
-  heading,
+export const TextMainFrameCard = ({
+  // subheading,
+  // heading,
   children,
 }: {
-  subheading: string;
-  heading: string;
+  // subheading: string;
+  // heading: string;
   children: ReactNode;
 }) => {
   return (
@@ -28,8 +28,8 @@ export const TextIntroduction = ({
       }}
     >
       <div className="relative h-[150vh]">
-        <StickyWaveDots />
-        <OverlayCopy heading={heading} subheading={subheading} />
+        <Background />
+        {/* <OverlayCopy heading={heading} subheading={subheading} /> */}
       </div>
       {children}
     </div>
@@ -37,7 +37,7 @@ export const TextIntroduction = ({
 };
 
 
-const StickyWaveDots = () => {
+const Background = () => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -45,7 +45,7 @@ const StickyWaveDots = () => {
   });
 
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const opacity = useTransform(scrollYProgress, [1, 0], [1, 0]);
 
   return (
     <motion.div
@@ -57,7 +57,7 @@ const StickyWaveDots = () => {
       ref={targetRef}
       className="sticky z-0 overflow-hidden rounded-3xl"
     >
-      <WaveDots />
+      <FirstLandingPage />
       <motion.div
         className="absolute inset-0 bg-neutral-950/70"
         style={{
@@ -101,7 +101,7 @@ const OverlayCopy = ({
   );
 };
 
-export const Introduction = () => {
+export const MainFrameCard = () => {
     const t = useTranslations(); 
     
     useEffect(() => {
@@ -110,17 +110,15 @@ export const Introduction = () => {
   
     return (
       <div className="bg-white select-none" draggable="false">    
-        <TextIntroduction
-          subheading={t('HomePage.introduction.subheading')}
-          heading={t('HomePage.introduction.heading')}
+        <TextMainFrameCard
         >
-          <IntroductionSectionContent />
-        </TextIntroduction>
+          <MainFrameCardSectionContent />
+        </TextMainFrameCard>
       </div>
     );
   };
 
-const IntroductionSectionContent = () => {
+const MainFrameCardSectionContent = () => {
   const locale = useLocale();
   const t = useTranslations();
 
@@ -150,4 +148,4 @@ const IntroductionSectionContent = () => {
   );
 };
 
-export default Introduction;
+export default MainFrameCard;

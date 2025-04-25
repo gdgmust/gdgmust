@@ -3,15 +3,9 @@ import {Link} from '@/i18n/routing';
 import Image from 'next/image';
 import FAQ from '@/components/homepage/faq';
 
-import WaveDots from '@/components/homepage/wave';
-import Introduction from '@/components/homepage/Introduction';
+import MainFrameCard from '@/components/homepage/FirstLandingPage/MainFrameCard';
 import { Example } from '@/components/homepage/SupportSection';
- 
-import Title from '@/components/homepage/title';
 
-
-//Image imports
-import intro from "../../../public/images/homepage/intro.jpg";
  
 export default function HomePage() {
   const t = useTranslations();
@@ -20,7 +14,7 @@ export default function HomePage() {
 
       {/* Opening */}
       <section className="">
-        <Introduction />
+        <MainFrameCard />
       </section>
 
 
