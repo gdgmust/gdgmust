@@ -27,7 +27,7 @@ export const TextMainFrameCard = ({
         paddingRight: IMG_PADDING,
       }}
     >
-      <div className="relative h-[150vh]">
+      <div className="relative h-[100vh]">
         <Background />
         {/* <OverlayCopy heading={heading} subheading={subheading} /> */}
       </div>
@@ -44,8 +44,8 @@ const Background = () => {
     offset: ["end end", "end start"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
-  const opacity = useTransform(scrollYProgress, [1, 0], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.75]);
+  const opacity = useTransform(scrollYProgress, [1, 0.5], [1, 0]);
 
   return (
     <motion.div
@@ -68,45 +68,45 @@ const Background = () => {
   );
 };
 
-const OverlayCopy = ({
-  subheading,
-  heading,
-}: {
-  subheading: string;
-  heading: string;
-}) => {
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start end", "end start"],
-  });
+// const OverlayCopy = ({
+//   subheading,
+//   heading,
+// }: {
+//   subheading: string;
+//   heading: string;
+// }) => {
+//   const targetRef = useRef(null);
+//   const { scrollYProgress } = useScroll({
+//     target: targetRef,
+//     offset: ["start end", "end start"],
+//   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [250, -250]);
-  const opacity = useTransform(scrollYProgress, [0.25, 0.5, 0.75], [0, 1, 0]);
+//   const y = useTransform(scrollYProgress, [0, 1], [250, -250]);
+//   const opacity = useTransform(scrollYProgress, [0.25, 0.5, 0.75], [0, 1, 0]);
 
-  return (
-    <motion.div
-      style={{
-        y,
-        opacity,
-      }}
-      ref={targetRef}
-      className="absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center text-white z-10"
-    >
-      <p className="mb-2 text-center text-xl md:mb-4 md:text-3xl">
-        {subheading}
-      </p>
-      <p className="sm:w-[300px] md:w-[850px] lg:w-[1000px] text-center text-4xl font-bold leading-[50px] md:text-[50px] lg:text-[50px]">{heading}</p>
-    </motion.div>
-  );
-};
+//   return (
+//     <motion.div
+//       style={{
+//         y,
+//         opacity,
+//       }}
+//       ref={targetRef}
+//       className="absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center text-white z-10"
+//     >
+//       <p className="mb-2 text-center text-xl md:mb-4 md:text-3xl">
+//         {subheading}
+//       </p>
+//       <p className="sm:w-[300px] md:w-[850px] lg:w-[1000px] text-center text-4xl font-bold leading-[50px] md:text-[50px] lg:text-[50px]">{heading}</p>
+//     </motion.div>
+//   );
+// };
 
 export const MainFrameCard = () => {
     const t = useTranslations(); 
     
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
+    // useEffect(() => {
+    //   window.scrollTo(0, 0);
+    // }, []);
   
     return (
       <div className="bg-white select-none" draggable="false">    
@@ -119,7 +119,7 @@ export const MainFrameCard = () => {
   };
 
 const MainFrameCardSectionContent = () => {
-  const locale = useLocale();
+  // const locale = useLocale();
   const t = useTranslations();
 
   return (
