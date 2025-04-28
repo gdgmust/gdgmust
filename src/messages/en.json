@@ -5,7 +5,12 @@
       "heading": "GDG on Campus at Mongolian University of Science and Technology"
     },
     "about": {
-      "title": "Who Are We?",
+      "title": "Who are we?",
+      "1": "Welcome",
+      "2": "to",
+      "3": "our",
+      "4": "website",
+      "5": "<3",
       "title2": "(What is GDG on Campus?)",
       "description": "Google Developer Groups (GDG) on Campus is a student-led initiative that brings together aspiring developers, tech enthusiasts, and innovators within our university. As an official extension of Google Developer Groups, our campus chapter is dedicated to fostering a vibrant community where students can learn, collaborate, and build projects that make a real impact.",
       "button-seemore": "See more"

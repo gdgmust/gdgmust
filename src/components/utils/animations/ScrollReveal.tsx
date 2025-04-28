@@ -1,53 +1,135 @@
 'use client';
 
-import { useRef, ReactNode } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { Animations } from '../../../app/[locale]/events/[slug]/utils';
+import React, { useEffect, useRef, useMemo, ReactNode, RefObject } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface ScrollRevealProps {
   children: ReactNode;
-  variant?: keyof typeof Animations;
-  threshold?: number;
-  delay?: number;
-  className?: string;
+  scrollContainerRef?: RefObject<HTMLElement>;
+  enableBlur?: boolean;
+  baseOpacity?: number;
+  baseRotation?: number;
+  blurStrength?: number;
+  containerClassName?: string;
+  textClassName?: string;
+  rotationEnd?: string;
+  wordAnimationEnd?: string;
 }
 
-export default function ScrollReveal({ 
-  children, 
-  variant = 'fadeReveal', 
-  threshold = 0.3,
-  delay = 0,
-  className = ''
-}: ScrollRevealProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: threshold });
-  
-  // Get the animation variant by name
-  const animation = Animations[variant];
-  
-  // Add delay if specified
-  const variantWithDelay = delay 
-    ? {
-        ...animation,
-        visible: {
-          ...animation.visible,
-          transition: {
-            ...animation.visible.transition,
-            delay
-          }
-        }
+const ScrollReveal: React.FC<ScrollRevealProps> = ({
+  children,
+  scrollContainerRef,
+  enableBlur = true,
+  baseOpacity = 0.1,
+  baseRotation = 3,
+  blurStrength = 4,
+  containerClassName = "",
+  textClassName = "",
+  rotationEnd = "bottom bottom",
+  wordAnimationEnd = "bottom bottom",
+}) => {
+  const containerRef = useRef<HTMLHeadingElement>(null);
+
+  const splitText = useMemo(() => {
+    const text = typeof children === "string" ? children : "";
+    return text.split(/(\s+)/).map((word, index) => {
+      if (word.match(/^\s+$/)) return word;
+      return (
+        <span className="inline-block word" key={index}>
+          {word}
+        </span>
+      );
+    });
+  }, [children]);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const scroller =
+      scrollContainerRef && scrollContainerRef.current
+        ? scrollContainerRef.current
+        : window;
+
+    gsap.fromTo(
+      el,
+      { transformOrigin: "0% 50%", rotate: baseRotation },
+      {
+        ease: "none",
+        rotate: 0,
+        scrollTrigger: {
+          trigger: el,
+          scroller,
+          start: "top bottom",
+          end: rotationEnd,
+          scrub: true,
+        },
       }
-    : animation;
+    );
+
+    const wordElements = el.querySelectorAll<HTMLElement>(".word");
+
+    gsap.fromTo(
+      wordElements,
+      { opacity: baseOpacity, willChange: "opacity" },
+      {
+        ease: "none",
+        opacity: 1,
+        stagger: 0.05,
+        scrollTrigger: {
+          trigger: el,
+          scroller,
+          start: "top bottom-=20%",
+          end: wordAnimationEnd,
+          scrub: true,
+        },
+      }
+    );
+
+    if (enableBlur) {
+      gsap.fromTo(
+        wordElements,
+        { filter: `blur(${blurStrength}px)` },
+        {
+          ease: "none",
+          filter: "blur(0px)",
+          stagger: 0.05,
+          scrollTrigger: {
+            trigger: el,
+            scroller,
+            start: "top bottom-=20%",
+            end: wordAnimationEnd,
+            scrub: true,
+          },
+        }
+      );
+    }
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, [
+    scrollContainerRef,
+    enableBlur,
+    baseRotation,
+    baseOpacity,
+    rotationEnd,
+    wordAnimationEnd,
+    blurStrength,
+  ]);
 
   return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      variants={variantWithDelay}
-      className={className}
-    >
-      {children}
-    </motion.div>
+    <h2 ref={containerRef} className={`my-5 ${containerClassName}`}>
+      <p
+        className={`text-[30px] mx-auto max-w-[1600px] px-8 md:px-12 lg:px-8 md:text-[40px] lg:text-[55px] text-justify leading-[1.5] ${textClassName}`}
+      >
+        {splitText}
+      </p>
+    </h2>
   );
-}
+};
+
+export default ScrollReveal;

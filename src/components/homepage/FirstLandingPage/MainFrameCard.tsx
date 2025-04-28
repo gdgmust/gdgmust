@@ -123,7 +123,7 @@ const MainFrameCardSectionContent = () => {
   const t = useTranslations();
 
   return (
-    <div className="mx-auto max-w-5xl gap-8 px-4 pb-24 pt-16 md:grid-cols-12 select-text" draggable="false">
+    <div className="mx-auto max-w-6xl gap-8 px-4 pb-24 pt-16 md:grid-cols-12 select-text" draggable="false">
       <div className="text-center md:text-left lg:text-left md:col-span-4 pb-16 leading-[34px]">
         <p className="flex justify-center text-[48px] font-bold">{t('HomePage.about.title')}</p>
         <p className="flex justify-center text-[18px] font-regular">{t('HomePage.about.title2')}</p>

@@ -5,6 +5,8 @@ import TextParallax from '@/components/aboutpage/TextParallax';
 import StartSection from '@/components/aboutpage/StartSection'; 
 import DoYouWannaJoinUs from '@/components/aboutpage/DoYouWannaJoinUs';
 
+import ScrollReveal from '@/components/utils/animations/ScrollReveal';
+
 export async function generateMetadata(props: any) {
   return {
     title: "About",
@@ -17,8 +19,8 @@ export async function generateMetadata(props: any) {
   };
 }
 
-export default function HomePage() {
-  const t = useTranslations('HomePage');
+export default function AboutPage() {
+  const t = useTranslations();
   return (
     <div>
       <div>
@@ -28,6 +30,16 @@ export default function HomePage() {
       </div>
       <div className="select-none">
         <TextParallax />          
+      </div>
+      <div className="flex items-center justify-center pt-40 pb-10">
+        <ScrollReveal
+          baseOpacity={0}
+          enableBlur={true}
+          baseRotation={3}
+          blurStrength={10}
+        >
+          {t('HomePage.about.description')}
+        </ScrollReveal>
       </div>
       <div className="select-none">
         <DoYouWannaJoinUs />

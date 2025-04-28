@@ -68,6 +68,10 @@ body {
   background: #555555;
 }
 
+::selection {
+  background: #dbdbdb;
+}
+
 /* Add these @font-face declarations properly */
 @font-face {
   font-family: 'ProductSansRegular';
