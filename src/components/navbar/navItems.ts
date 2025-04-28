@@ -27,7 +27,7 @@ export const navItems = [
       // { label: 'Merch', anchor: '/merch' },
       // { label: 'Policy', anchor: '/policy' },
       // { label: 'Contact Us', anchor: '/contact' }
-      { label: 'Contact Us', anchor: '/building' }
+      { label: 'Contact Us', anchor: '/contact' }
     ]
   }
 ];

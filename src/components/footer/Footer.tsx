@@ -5,6 +5,8 @@ import "@/styles/globals.css";
 import Image from "next/image";
 import pixelHeart from "../../../public/images/footer/pixelHeart.png";
 
+const currentYear: number = new Date().getFullYear();
+
 const Footer = () => {
   return (
     <div draggable="false" className="w-full flex flex-col items-center pt-[69px] pb-[100px] lg:pb-[78px] md:pb-[100px] sm:pb-[100px] px-5 md:px-10 bg-[#F6F6F6] select-none">
@@ -32,7 +34,7 @@ const Footer = () => {
           <div className="mt-6 lg:mt-0 md:mt-6 sm:mt-6 text-center lg:text-right" draggable="false">
             <p className="text-[19px] mt-2">Ulaanbaatar, Mongolia</p>
             <p className="text-[15px] -mt-[6px] flex items-center justify-end">
-              Made with <Image src={pixelHeart} alt="Pixel Heart" width={15} height={15} draggable="false" className="mx-1 select-none" /> in UB © 2025
+              Made with <Image src={pixelHeart} alt="Pixel Heart" width={15} height={15} draggable="false" className="mx-1 select-none" /> in UB © {currentYear}
             </p>
             <p className="text-[14px] -mt-[6.5px]">Developed by <a href="https://www.instagram.com/roaziy/" target="_blank" rel="noopener noreferrer" draggable="false"><span className="font-bold select-none" >roaziy</span></a></p>
           </div>
