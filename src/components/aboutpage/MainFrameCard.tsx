@@ -123,27 +123,8 @@ const MainFrameCardSectionContent = () => {
   const t = useTranslations();
 
   return (
-    <div className="mx-auto max-w-5xl gap-8 px-4 pb-24 pt-16 md:grid-cols-12 select-text" draggable="false">
-      <div className="text-center md:text-left lg:text-left md:col-span-4 pb-16 leading-[34px]">
-        <p className="flex justify-center text-[48px] font-bold">{t('HomePage.about.title')}</p>
-        <p className="flex justify-center text-[18px] font-regular">{t('HomePage.about.title2')}</p>
-      </div>
-      <div className="col-span-1 md:col-span-8">
-        <p className="mb-4 text-xl text-justify text-neutral-600 md:text-2xl pb-5">
-          {t('HomePage.about.description')}
-        </p>
-        {/* <p className="mb-8 text-xl text-neutral-600 md:text-2xl">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-        <a className="" href={`/${router.locale}/events`}>
-        </p> */}
-        <span className="flex items-center justify-end">
-          <Link href={`/about`} className="" draggable="false">
-            <button className="rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-bold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none select-none">
-              {t('HomePage.about.button-gotoabout')}
-            </button>
-          </Link>
-        </span>
-      </div>
+    <div className="" draggable="false">
+
     </div>
   );
 };

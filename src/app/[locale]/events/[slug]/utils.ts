@@ -254,5 +254,5 @@ export const createScrollAnimation = (threshold = 0.2) => {
   };
 };
 
-// Re-export the ScrollReveal component for easy access
-export { default as ScrollReveal } from '../../../../components/utils/animations/ScrollReveal';
+// Re-export the ScrollFadeReveal component for easy access
+export { default as ScrollFadeReveal } from '../../../../components/utils/animations/ScrollFadeReveal';

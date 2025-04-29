@@ -6,14 +6,15 @@
     },
     "about": {
       "title": "Who are we?",
-      "1": "Welcome",
-      "2": "to",
-      "3": "our",
-      "4": "website",
-      "5": "<3",
+      "who": "Who",
+      "are": "are",
+      "we": "we",
+      "?": "?",
+      "answer1": "We are a community of tech enthusiasts and innovators at the Mongolian University of Science and Technology (MUST). We are passionate about technology and its potential to change the world. Our mission is to empower students to learn, collaborate, and create impactful projects that can make a difference.",
       "title2": "(What is GDG on Campus?)",
       "description": "Google Developer Groups (GDG) on Campus is a student-led initiative that brings together aspiring developers, tech enthusiasts, and innovators within our university. As an official extension of Google Developer Groups, our campus chapter is dedicated to fostering a vibrant community where students can learn, collaborate, and build projects that make a real impact.",
-      "button-gotoabout": "Go to About page"
+      "button-gotoabout": "Go to About page",
+      "button-gotocommuntiy": "Go to Community page"
     },
     "FAQ": {
       "question1": "Who can join GDG On-Campus at MUST?",

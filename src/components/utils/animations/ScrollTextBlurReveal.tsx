@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface ScrollRevealProps {
+interface ScrollFadeRevealProps {
   children: ReactNode;
   scrollContainerRef?: RefObject<HTMLElement>;
   enableBlur?: boolean;
@@ -70,7 +70,7 @@ const animationVariants: Record<string, any> = {
   },
 };
 
-const ScrollReveal: React.FC<ScrollRevealProps> = ({
+const ScrollTextBlurReveal: React.FC<ScrollFadeRevealProps> = ({
   children,
   scrollContainerRef,
   enableBlur = true,
@@ -216,4 +216,4 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   );
 };
 
-export default ScrollReveal;
+export default ScrollTextBlurReveal;

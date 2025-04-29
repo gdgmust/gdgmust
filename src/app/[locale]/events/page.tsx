@@ -4,7 +4,7 @@ import PaginationControls from '@/components/utils/PaginationControls';
 import EventSearch from '@/components/eventspage/EventSearch';
 import { getTranslations } from 'next-intl/server';
 
-import ScrollReveal from '@/components/utils/animations/ScrollReveal';
+import ScrollFadeReveal from '@/components/utils/animations/ScrollFadeReveal';
 
 const ITEMS_PER_PAGE = 9;
 
@@ -92,17 +92,17 @@ export default async function EventsPage({
           )}
           
           {/* Upcoming events section */}
-          <ScrollReveal variant="fadeReveal" delay={0.1}>
+          <ScrollFadeReveal variant="fadeReveal" delay={0.1}>
           <h2 className="text-2xl font-bold mt-5 mb-4">
             {t('headerofevents.upcoming')}
           </h2>
-          </ScrollReveal>
+          </ScrollFadeReveal>
 
           <a>
           {allUpcomingEvents.length > 0 ? (
             <>
-              <ScrollReveal variant="fadeReveal" delay={0.5}>
-              <EventList events={upcomingEvents} /> </ScrollReveal>
+              <ScrollFadeReveal variant="fadeReveal" delay={0.5}>
+              <EventList events={upcomingEvents} /> </ScrollFadeReveal>
               {totalUpcomingPages > 1 && (
                 <PaginationControls 
                   currentPage={upcomingPage}
@@ -118,16 +118,16 @@ export default async function EventsPage({
           </a>
           
           {/* Past events section */}
-          <ScrollReveal variant="fadeReveal" delay={0.6}>
+          <ScrollFadeReveal variant="fadeReveal" delay={0.6}>
           <h2 className="text-2xl font-bold mb-4 mt-16">
             {t('headerofevents.past')}
           </h2> 
-          </ScrollReveal>
+          </ScrollFadeReveal>
           <a>
           {allPastEvents.length > 0 ? (
             <>
-              <ScrollReveal variant="fadeReveal" delay={0.8}>
-              <EventList events={pastEvents} /> </ScrollReveal>
+              <ScrollFadeReveal variant="fadeReveal" delay={0.8}>
+              <EventList events={pastEvents} /> </ScrollFadeReveal>
               {totalPastPages > 1 && (
                 <PaginationControls 
                   currentPage={pastPage}

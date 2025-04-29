@@ -66,7 +66,7 @@ const ShortcutEnable = ({ enabled, text, link }: ShortcutEnableProps) => {
 export default function MainNavbar() {
     const [isMobile, setIsMobile] = useState(false);
     const [mounted, setMounted] = useState(false);
-    const [shortcutEnabled] = useState(true);
+    const [shortcutEnabled] = useState(false); // Set to true to enable the shortcut bar
     const [shortcutText] = useState('Hackathon - Register Now!');
     const locale = useLocale();
     const [shortcutLink] = useState(`/${locale}/events`);

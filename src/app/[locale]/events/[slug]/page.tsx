@@ -3,7 +3,7 @@ import { Link } from '@/i18n/routing';
 import { getTranslations } from 'next-intl/server';
 import { IoMdArrowRoundBack } from "react-icons/io";
 
-import { getEventBySlug, createSlug, resolveParams, ScrollReveal } from './utils';
+import { getEventBySlug, createSlug, resolveParams, ScrollFadeReveal } from './utils';
 import EventHero from './components/EventHero';
 import EventDetails from './components/EventDetails';
 import EventSidebar from './components/EventSidebar';
@@ -51,12 +51,12 @@ export default async function EventPage(props: any) {
     <div className="bg-zinc-100/50 mx-auto px-4 py-14">
       <div className="max-w-6xl mx-auto space-y-16"> {/* Increased spacing between main sections */}
         {/* Hero section */}
-        <ScrollReveal variant="fadeReveal" delay={0.1}>
+        <ScrollFadeReveal variant="fadeReveal" delay={0.1}>
         <EventHero event={event} />
-        </ScrollReveal>
+        </ScrollFadeReveal>
 
         {/* Event details - two column layout */}
-        <ScrollReveal variant="fadeReveal" delay={0.1}>
+        <ScrollFadeReveal variant="fadeReveal" delay={0.1}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Main content */}
             <EventDetails event={event} />
@@ -67,30 +67,30 @@ export default async function EventPage(props: any) {
               registerText={t('in-event-info.Register')}
             />
           </div>
-        </ScrollReveal>
+        </ScrollFadeReveal>
 
         {/* Location section */}
-        <ScrollReveal variant="fadeReveal" delay={0.1}>
+        <ScrollFadeReveal variant="fadeReveal" delay={0.1}>
           <EventLocation event={event} />
-        </ScrollReveal>
+        </ScrollFadeReveal>
 
         {/* Additional info sections */}
-        <ScrollReveal variant="fadeReveal" delay={0.1}>
+        <ScrollFadeReveal variant="fadeReveal" delay={0.1}>
           <EventAdditionalInfo event={event} />
-        </ScrollReveal>
+        </ScrollFadeReveal>
 
         {/* Sponsors */}
-        <ScrollReveal variant="fadeReveal" delay={0.1}>
+        <ScrollFadeReveal variant="fadeReveal" delay={0.1}>
           <EventSponsors event={event} />
-        </ScrollReveal>
+        </ScrollFadeReveal>
 
         {/* People sections - with proper spacing between types */}
           <EventPeople event={event} />
 
         {/* Organizer */}
-        <ScrollReveal variant="fadeReveal" delay={0.1}>
+        <ScrollFadeReveal variant="fadeReveal" delay={0.1}>
           <EventOrganizer event={event} />
-        </ScrollReveal>
+        </ScrollFadeReveal>
         {/* Back to events button */}
         <div className='mt-12'>
           <Link href="/events" className="flex justify-center">

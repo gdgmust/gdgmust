@@ -6,7 +6,7 @@ import { BsPeopleFill } from "react-icons/bs";
 import { FaQuestion } from "react-icons/fa";
 import { groupPeopleByType, fadeInUp, staggerContainer, generateStaggered } from '../utils';
 
-import ScrollReveal from '../../../../../components/utils/animations/ScrollReveal';
+import ScrollFadeReveal from '../../../../../components/utils/animations/ScrollFadeReveal';
 
 interface EventPeopleProps {
   event: any;
@@ -24,7 +24,7 @@ export default function EventPeople({ event }: EventPeopleProps) {
   return (
     <>
       {Object.keys(peopleByType).map(type => (
-        <ScrollReveal key={`scroll-reveal-${type}`} variant="fadeReveal" delay={0.1}>
+        <ScrollFadeReveal key={`scroll-reveal-${type}`} variant="fadeReveal" delay={0.1}>
         <motion.div 
           initial="hidden"
           animate="visible"
@@ -89,7 +89,7 @@ export default function EventPeople({ event }: EventPeopleProps) {
             ))}
           </div>
         </motion.div>
-        </ScrollReveal>
+        </ScrollFadeReveal>
       ))}
     </>
   );
