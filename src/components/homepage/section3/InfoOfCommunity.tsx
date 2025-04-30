@@ -107,9 +107,9 @@ export default function InfoOfCommunity() {
   return (
     <section className="">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">
-            {locale === 'mn' ? 'Бидний Удирдагчид' : 'Our Community Leaders'}
+        <div className="text-center mb-12 leading-[34px]">
+          <h2 className="text-[40px] font-bold">
+            {locale === 'mn' ? 'Бидний Удирдагчид' : 'Our Leaders'}
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             {locale === 'mn' 
@@ -132,7 +132,7 @@ export default function InfoOfCommunity() {
           {/* <div className="p-[1px] rounded-[35px] bg-gradient-to-b from-blue-300 to-pink-300 dark:from-blue-800 dark:to-purple-800">
           <div className="bg-white p-10 rounded-[35px] relative"> */}
           <div className="bg-white px-10 pt-10 pb-8 rounded-[40px] shadow-[0px_1px_7px] shadow-gray-300/80 relative">
-            <div className="absolute top-0 -left-4 transform -translate-y-1/2 bg-blue-500 p-[10px] rounded-full">
+            <div className="absolute top-0 -left-3 transform -translate-y-1/2 bg-blue-500 p-[10px] rounded-full">
               <LuMessageCircleHeart className="text-white text-[25px]" />
             </div>
             
@@ -151,7 +151,7 @@ export default function InfoOfCommunity() {
                   <Image
                     src={currentLeaders[currentIndex].image}
                     alt={getName(currentLeaders[currentIndex])}
-                    className={`rounded-full border-2 ${
+                    className={`rounded-full border-2 select-none ${
                       currentLeaders[currentIndex].role === "leaderof-gdg"
                         ? "border-red-600"
                         : currentLeaders[currentIndex].role === "leaderof-development"
@@ -165,8 +165,9 @@ export default function InfoOfCommunity() {
                         : "border-gray-300"
                     }`}
                     style={{ objectFit: 'cover', width: '100%', height: '100%' }}
-                    width={512}
-                    height={512}
+                    draggable="false"
+                    width={256}
+                    height={256}
                   />
                 ) : (
                   <div
@@ -233,7 +234,8 @@ export default function InfoOfCommunity() {
                     animate="animate"
                     exit="exit"
                     transition={{ duration: 0.5 }}
-                    className="mt-2 flex flex-wrap gap-2"
+                    className="mt-2 flex flex-wrap gap-2 select-none"
+                    draggable="false"
                   >
                     {currentLeaders[currentIndex].specialties.map((specialty, idx) => (
                       <span key={idx} className="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">
@@ -249,7 +251,7 @@ export default function InfoOfCommunity() {
                   animate="animate"
                   exit="exit"
                   transition={{ duration: 0.5 }}
-                  className="text-[20px] italic mt-6 mb-4 h-[80px]"
+                  className="text-[20px] italic mt-6 mb-4 h-[110px] md:h-[100px] lg:h-[80px] overflow-hidden"
                 >
                   "{getBio(currentLeaders[currentIndex])}"
                 </motion.blockquote>
@@ -267,9 +269,9 @@ export default function InfoOfCommunity() {
                 ))}
             </div>
 
-            <div className="grid grid-cols-2 gap-4 mt-5">
+            <div className="grid grid-rows-1 lg:grid-cols-2 gap-8 lg:gap-4 mt-2 lg:mt-5">
                 <div>
-                    <div className="flex justify-start gap-4">
+                      <div className="flex justify-center lg:justify-start items-center lg:items-end h-[52px] gap-4">
                     <button 
                         onClick={prevLeader}
                         className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
@@ -286,7 +288,7 @@ export default function InfoOfCommunity() {
                     </button>
                     </div>
                 </div>
-                <div className="flex justify-end content-center">
+                <div className="flex justify-center lg:justify-end">
                     <Link href={`/about`} className="" draggable="false">
                         <button className="rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-bold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none select-none">
                             {t('HomePage.about.button-gotocommuntiy')}

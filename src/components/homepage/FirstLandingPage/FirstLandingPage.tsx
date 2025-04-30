@@ -96,8 +96,8 @@ export default function FirstLandingPage() {
                         onClick={() => {
                             const scrollTo = () => {
                                 const start = window.scrollY;
-                                const end = window.innerHeight;
-                                const duration = 1000;
+                                const end = window.innerHeight / 1.3;
+                                const duration = 1200;
                                 let startTime: number | null = null;
 
                                 const easeInOutCubic = (t: number) =>
@@ -143,8 +143,8 @@ export default function FirstLandingPage() {
                     onClick={() => {
                         const scrollTo = () => {
                             const start = window.scrollY;
-                            const end = window.innerHeight;
-                            const duration = 1000;
+                            const end = window.innerHeight / 1.1;
+                            const duration = 1200;
                             let startTime: number | null = null;
 
                             const easeInOutCubic = (t: number) =>

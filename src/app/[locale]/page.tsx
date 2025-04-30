@@ -21,16 +21,16 @@ export default function HomePage() {
       </section>
 
       {/* section3 */}
-      <div className="py-10">
+      <div className="pt-24 pb-20">
         <InfoOfCommunity />
       </div>
 
       {/* FAQ Section */}
-      <section className="relative z-10 bg-white pt-16 pb-24">
+      <section className="relative z-10 bg-white pt-32 pb-4">
         <div className="flex items-center justify-center text-[40px] font-bold select-none">
           <p>F</p><p>A</p><p>Q</p>
         </div>
-        <div className="mt-3 flex items-center justify-center">
+        <div className="mt-8 flex h-[500px] items-start justify-center">
           <FAQ />
         </div>
       </section>

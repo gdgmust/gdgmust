@@ -87,7 +87,7 @@ export default function AboutPage() {
       </section>
 
 
-      <div className="flex items-center justify-center pt-40 pb-10">
+      <div className="flex items-center justify-center pt-40 pb-40">
         <ScrollTextBlurReveal
           baseOpacity={0}
           enableBlur={true}
