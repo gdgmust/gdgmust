@@ -16,7 +16,7 @@ export default function FirstLandingPage() {
         <div className="w-full h-screen select-none" draggable="false">
             <div className="bg-white w-full h-full" draggable="false">
                 <Image
-                    src="/images/aboutpage/first.jpg"
+                    src="/images/aboutpage/test.jpg"
                     alt="image" 
                     className="object-cover"
                     draggable="false"

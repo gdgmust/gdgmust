@@ -36,12 +36,12 @@ export function parseLogoImage(
     img.crossOrigin = "anonymous";
     img.onload = function () {
       if (file.type === "image/svg+xml") {
-        img.width = 1024;
-        img.height = 1024;
+        img.width = 512;
+        img.height = 512;
       }
 
-      const MAX_SIZE = 1024;
-      const MIN_SIZE = 1024;
+      const MAX_SIZE = 512;
+      const MIN_SIZE = 512;
       let width = img.naturalWidth;
       let height = img.naturalHeight;
 
