@@ -1,5 +1,9 @@
+'use client';
+
 import {useTranslations} from 'next-intl';
 import {Link} from '@/i18n/routing';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 
 import TextParallax from '@/components/aboutpage/TextParallax';
 import DoYouWannaJoinUs from '@/components/aboutpage/DoYouWannaJoinUs';
@@ -8,98 +12,60 @@ import ScrollTextBlurReveal from '@/components/utils/animations/ScrollTextBlurRe
 import ScrollFloat from '@/components/utils/animations/ScrollFloat'
 
 import MainFrameCard from '@/components/aboutpage/MainFrameCard';
-import { Main } from 'next/document';
+import Cards from '@/components/aboutpage/Card';
 
-export async function generateMetadata(props: any) {
-  return {
-    title: "About",
-    description: "Learn more about us",
-    openGraph: {
-      title: "About",
-      description: "Learn more about us",
-      // images: event.image ? [event.image] : [],
-    },
-  };
-}
+import BlurText from "@/components/aboutpage/BlurText";
 
 export default function AboutPage() {
   const t = useTranslations();
-  return (
-    <div>
-      {/* <div>
-        <StartSection />
-      </div> */}
+  const ref = useRef(null);
 
+  return (
+    <div className="">
       <section>
         <MainFrameCard />
       </section>
 
-      {/* <div className="select-none">
-        <TextParallax />          
-      </div> */}
+{/* <div className='relative'>
+      <div className="sticky h-screen">
+                <BlurText
+                text="About Us"
+                delay={450}
+                animateBy="words"
+                direction="top"
+                className="text-8xl mb-8 text-black"
+                />
+            </div>
+            </div> */}
 
-      <section className="relative w-full flex items-center justify-center bg-white h-[150vh]">
+      <div className="flex items-center justify-center h-screen py-10 "> 
         <ScrollFloat
           animationDuration={1}
           ease='back.inOut(2)'
           scrollStart='center bottom+=50%'
-          scrollEnd='bottom bottom-=70%'
+          scrollEnd='bottom bottom-=60%'
           stagger={0.03}
         >
-          {t('HomePage.about.who')}
+          Who are we?
         </ScrollFloat>
-      </section>
+      </div>
 
-      <section className="relative w-full flex items-center justify-center bg-white h-[150vh]">
-        <ScrollFloat
-          animationDuration={1}
-          ease='back.inOut(2)'
-          scrollStart='center bottom+=50%'
-          scrollEnd='bottom bottom-=40%'
-          stagger={0.03}
-        >
-          {t('HomePage.about.are')}
-        </ScrollFloat>
-      </section>
-
-      <section className="relative w-full flex items-center justify-center bg-white h-[150vh]">
-        <ScrollFloat
-          animationDuration={1}
-          ease='back.inOut(2)'
-          scrollStart='center bottom+=50%'
-          scrollEnd='bottom bottom-=40%'
-          stagger={0.03}
-        >
-          {t('HomePage.about.we')}
-        </ScrollFloat>
-      </section>
-
-      <section className="relative w-full flex items-center justify-center bg-white h-[150vh]">
-        <ScrollFloat
-          animationDuration={1}
-          ease='back.inOut(2)'
-          scrollStart='center bottom+=50%'
-          scrollEnd='bottom bottom-=40%'
-          stagger={0.03}
-        >
-          {t('HomePage.about.?')}
-        </ScrollFloat>
-      </section>
-
-
-      <div className="flex items-center justify-center pt-40 pb-40">
+        <div className="flex items-center justify-center h-screen py-40">
         <ScrollTextBlurReveal
           baseOpacity={0}
           enableBlur={true}
           baseRotation={3}
-          blurStrength={10}
+          blurStrength={6}
         >
           {t('HomePage.about.answer1')}
         </ScrollTextBlurReveal>
       </div>
-      <div className="select-none">
+
+      <Cards />
+
+      <motion.div>
         <DoYouWannaJoinUs />
-      </div>
+      </motion.div>
     </div>
   );
 }

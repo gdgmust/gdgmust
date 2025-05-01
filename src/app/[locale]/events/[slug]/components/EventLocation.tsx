@@ -38,7 +38,7 @@ export default function EventLocation({ event }: EventLocationProps) {
       </div>
       <nav className="flex justify-center">
         <a 
-          href={(hasMapsLinkButton ? event.mapsLinkButton : event.mapsLinkButton)}
+          href={(hasMapsLinkButton ? event.mapsLinkButton : event.mapsLink)}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center bg-blue-600 hover:bg-blue-500 text-white font-medium h-[48px] py-3 px-6 rounded-full transition-all hover:shadow-lg transform hover:-translate-y-0.5 select-none" draggable="false"

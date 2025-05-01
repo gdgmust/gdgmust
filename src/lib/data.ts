@@ -6,20 +6,36 @@ export async function getEvents() {
   // Get current date for status comparison
   const currentDate = new Date();
   
-  // Make a copy of the events and update the status based on date
-  const updatedEvents = eventsData.map(event => {
-    const eventDate = new Date(event.date);
-    // Determine if the event is upcoming or past
-    const status = eventDate > currentDate ? 'upcoming' : 'past';
+  try {
+    // Make a copy of the events and update the status based on date
+    const updatedEvents = eventsData.map(event => {
+      // Ensure the event date is valid
+      const eventDateStr = event.date || '';
+      const eventDate = new Date(eventDateStr);
+      
+      // Check if the event date is valid before comparing
+      const isValidDate = !isNaN(eventDate.getTime());
+      
+      // Determine if the event is upcoming or past
+      // Default to 'past' if date is invalid
+      const status = isValidDate && eventDate > currentDate ? 'upcoming' : 'past';
+      
+      // Return a new object with updated status
+      return {
+        ...event,
+        status
+      };
+    });
     
-    // Return a new object with updated status
-    return {
+    return updatedEvents;
+  } catch (error) {
+    console.error('Error processing events:', error);
+    // Return original data if there's an error
+    return eventsData.map(event => ({
       ...event,
-      status
-    };
-  });
-  
-  return updatedEvents;
+      status: 'past' // Default to past on error
+    }));
+  }
 }
 
 export async function getMembers(year?: string) {

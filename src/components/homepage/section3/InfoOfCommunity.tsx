@@ -198,7 +198,7 @@ export default function InfoOfCommunity() {
                   animate="animate"
                   exit="exit"
                   transition={{ duration: 0.5 }}
-                  className="font-bold text-xl"
+                  className="font-bold text-[24px]"
                 >
                   {getName(currentLeaders[currentIndex])}
                 </motion.p>
@@ -251,7 +251,7 @@ export default function InfoOfCommunity() {
                   animate="animate"
                   exit="exit"
                   transition={{ duration: 0.5 }}
-                  className="text-[20px] italic mt-6 mb-4 h-[110px] md:h-[100px] lg:h-[80px] overflow-hidden"
+                  className="text-[20px] italic mt-6 mb-4 items-start overflow-hidden"
                 >
                   "{getBio(currentLeaders[currentIndex])}"
                 </motion.blockquote>
@@ -289,7 +289,7 @@ export default function InfoOfCommunity() {
                     </div>
                 </div>
                 <div className="flex justify-center lg:justify-end">
-                    <Link href={`/about`} className="" draggable="false">
+                    <Link href={`/community`} className="" draggable="false">
                         <button className="rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-bold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none select-none">
                             {t('HomePage.about.button-gotocommuntiy')}
                         </button>

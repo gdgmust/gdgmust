@@ -44,7 +44,7 @@ export default function TextParallax() {
 
     return (
         <main className="overflow-hidden" draggable='false' >
-        <div className='h-[100vh]' />
+        {/* <div className='h-[100vh]' /> */}
         <div className='' ref={container}>
             <Slide src={Picture1} direction="left" left="-40%" progress={scrollYProgress} />
             <Slide src={Picture2} direction="right" left="-25%" progress={scrollYProgress} />
@@ -71,7 +71,8 @@ const Phrase: React.FC<PhraseProps> = ({ src }) => {
     const t = useTranslations();
     return (
         <div className="px-5 flex gap-5 items-center">
-        <p className="text-[7.5vw] select-none">{t('AboutPage.TextParallax')}</p>
+        {/* <p className="text-[7.5vw] text-white select-none">{t('AboutPage.TextParallax')}</p> */}
+        <p className="text-[7.5vw] text-white select-none">What we do?</p>
         <span className="relative h-[7.5vw] aspect-[4/2] rounded-full overflow-hidden">
             <Image 
                 style={{ objectFit: "cover" }} 
