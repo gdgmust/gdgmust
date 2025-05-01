@@ -208,7 +208,7 @@ const ScrollTextBlurReveal: React.FC<ScrollFadeRevealProps> = ({
   return (
     <h2 ref={containerRef} className={`my-5 ${containerClassName}`}>
       <p
-        className={`text-[30px] mx-auto max-w-[1600px] px-8 md:px-12 lg:px-8 md:text-[40px] lg:text-[55px] text-justify leading-[1.5] ${textClassName}`}
+        className={`text-[30px] w-[330px] md:w-[1000px] lg:w-[1600px] md:text-[40px] lg:text-[55px] text-justify leading-[1.5] ${textClassName}`}
       >
         {splitText}
       </p>

@@ -6,52 +6,78 @@ import { Jersey_10 } from 'next/font/google';
 import { Libre_Barcode_128 } from 'next/font/google';
 import { Tinos } from 'next/font/google';
 import { FaAngleDoubleDown } from "react-icons/fa";
+import { memo, useCallback } from 'react';
 
-import Iridescence from './iridescence';
 import CircularText from './CircularText';
-
+import Logo from './Logo';
+import Iridescence from './iridescence';
 
 const zenTokyoZoo = Zen_Tokyo_Zoo({
     subsets: ['latin'],
     weight: '400',
     variable: '--font-zen-tokyo-zoo',
+    display: 'swap',
 });
 
 const yarndings = Yarndings_20({
     subsets: ['latin'],
     weight: '400',
     variable: '--font-yarndings-20',
+    display: 'swap',
 });
 
 const jersey10 = Jersey_10({
     subsets: ['latin'],
     weight: '400',
     variable: '--font-jersey-10',
+    display: 'swap',
 });
 
 const libreBarcode128 = Libre_Barcode_128({
     subsets: ['latin'],
     weight: '400',
     variable: '--font-libre-barcode-128',
+    display: 'swap',
 });
 
 const tinos = Tinos({
     subsets: ['latin'],
     weight: '400',
     variable: '--font-tinos',
+    display: 'swap',
 });
 
-
+const MemoizedCircularText = memo(CircularText);
 
 export default function FirstLandingPage() {
+    const scrollToNextSection = useCallback(() => {
+        const nextSection = document.getElementById('next-section') || 
+                            document.querySelector('section:nth-of-type(2)');
+        
+        if (nextSection) {
+            nextSection.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        } else {
+            window.scrollTo({
+                top: window.innerHeight / 1.3,
+                behavior: 'smooth'
+            });
+        }
+    }, []);
+
     return (
-        <div className="w-full h-screen select-none bg-[#D9D9D9]" draggable="false">            
+        <div className="w-full h-screen select-none bg-[#D9D9D9]" draggable="false">
             <Iridescence
                 color={[1, 1, 1]}
                 mouseReact={false}
                 amplitude={0.1}
                 speed={1.0}
             />
+            <div className='absolute top-0 left-0 w-full h-full flex items-center justify-center'>
+                <Logo />
+            </div>
             <div className="absolute top-[67px] ml-[28px] md:ml-[52px] lg:ml-[52px]  select-none">
                 <p className="text-[14px] -mt-3 md:-mt-10 lg:-mt-10">
                     *cool landing page btw
@@ -73,14 +99,12 @@ export default function FirstLandingPage() {
                 </p>
             </div>
             
-            {/* bar code */}
             <div className="absolute bottom-0 right-0 mb-1 mr-[90px] hidden md:block lg:block select-none">
                 <p className={`text-[69px] ${libreBarcode128.className}`}>
                     roaziy
                 </p>
             </div>
 
-            {/* scroll down */}
             <div className='absolute bottom-0 right-0 mb-[103px] mr-[92px] select-none hidden md:block lg:block'>
                 <div className='w-[135px] h-[211px] bg-white border border-1 border-black'>
                     <span className='w-full flex flex-col items-end pr-[10px] pt-[6px] leading-8'>
@@ -126,7 +150,7 @@ export default function FirstLandingPage() {
                     >
                         <FaAngleDoubleDown className='absolute size-[40px] bottom-[30px] transition-transform duration-700 ease-in-out hover:scale-110' />
                         <div className="absolute inset-0 w-full h-full cursor-pointer" aria-hidden="true"></div>
-                        <CircularText
+                        <MemoizedCircularText
                             text="SCROLL*DOWN*SCROLL"
                             onHover="speedUp"
                             spinDuration={25}
@@ -136,7 +160,6 @@ export default function FirstLandingPage() {
                 </div>
             </div>
 
-            {/* scroll down for mobile */}
             <div className='absolute bottom-[170px] right-[95px]'>
                 <div 
                     className='w-full mt-5 flex justify-center items-center cursor-pointer relative z-10 md:hidden lg:hidden'
@@ -173,7 +196,7 @@ export default function FirstLandingPage() {
                 >
                     <FaAngleDoubleDown className='absolute size-[40px] bottom-[30px] transition-transform duration-700 ease-in-out hover:scale-110' />
                     <div className="absolute inset-0 w-full h-full cursor-pointer" aria-hidden="true"></div>
-                    <CircularText
+                    <MemoizedCircularText
                         text="SCROLL*DOWN*SCROLL"
                         onHover="speedUp"
                         spinDuration={25}

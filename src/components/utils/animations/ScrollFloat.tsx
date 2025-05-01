@@ -93,7 +93,7 @@ const ScrollFloat: React.FC<ScrollFloatProps> = ({
       className={`my-5 overflow-hidden ${containerClassName}`}
     >
       <span
-        className={`inline-block text-[90px] md:text-[150px] lg:text-[200px] leading-[1.5] ${textClassName}`}
+        className={`inline-block text-[60px] md:text-[150px] lg:text-[200px] leading-[1.5] ${textClassName}`}
       >
         {splitText}
       </span>

@@ -43,8 +43,8 @@ void main() {
     col = cos(col * cos(vec3(d, a, 2.5)) * 0.5 + 0.5) * uColor;
 
     // Convert to grayscale
-    // float gray = dot(col, vec3(0.299, 0.587, 0.114));
-    // col = vec3(gray);
+    float gray = dot(col, vec3(0.299, 0.587, 0.114));
+    col = vec3(gray);
 
     gl_FragColor = vec4(col, 1.0);
 }

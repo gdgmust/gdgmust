@@ -69,7 +69,7 @@ body {
 }
 
 ::selection {
-  background: #dbdbdb;
+  background: rgba(219, 219, 219, 0.5);
 }
 
 /* Add these @font-face declarations properly */
