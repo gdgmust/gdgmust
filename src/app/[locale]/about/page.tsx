@@ -36,7 +36,7 @@ export default function AboutPage() {
         </ScrollFloat>
       </div>
 
-      <div className="flex items-center justify-center h-screen py-40">
+      <div className="flex items-center justify-center h-screen mx-auto max-w-[1600px] px-8 py-40">
         <ScrollTextBlurReveal
           baseOpacity={0}
           enableBlur={true}

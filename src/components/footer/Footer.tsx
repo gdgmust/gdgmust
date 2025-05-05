@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFacebook, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedinIn, FaDiscord } from "react-icons/fa";
 import "@/styles/globals.css";
 
 import Image from "next/image";
@@ -28,7 +28,10 @@ const Footer = () => {
               <FaInstagram className="text-[24px] lg:hover:text-gray-500 md:hover:text-gray-500 select-none" />
             </a>
             <a href="https://www.linkedin.com/company/gdgmust/" target="_blank" rel="noopener noreferrer" draggable="false">
-              <FaLinkedinIn className=" lg:hover:text-gray-500 md:hover:text-gray-500 text-[24px] select-none" />
+              <FaLinkedinIn className=" lg:hover:text-gray-500 md:hover:text-gray-500 text-[24px] select-none mt-[1px]" />
+            </a>
+            <a href="https://discord.gg/YNyzd5D9" target="_blank" rel="noopener noreferrer" draggable="false">
+              <FaDiscord  className=" lg:hover:text-gray-500 md:hover:text-gray-500 text-[27px] -mt-[1px] select-none" />
             </a>
           </div>
           <div className="mt-6 lg:mt-0 md:mt-6 sm:mt-6 text-center lg:text-right" draggable="false">

@@ -93,7 +93,7 @@ const ProjectCard = ({i, title, description, src, link, color, progress, range, 
           scale, 
           top: `calc(-5vh + ${i * 25}px)`
         }} 
-        className="flex flex-col relative h-[750px] w-[1400px] rounded-[45px] origin-top overflow-hidden"
+        className="flex flex-col relative w-[1400px] h-[500px] md:h-[750px] lg:h-[750px] rounded-[45px] origin-top overflow-hidden"
       >
         {/* Background image */}
         <div className="absolute inset-0 z-[-2]">
@@ -113,23 +113,27 @@ const ProjectCard = ({i, title, description, src, link, color, progress, range, 
             transition: 'opacity 0.1s ease-out'
           }}
         />
-        <div className="absolute bottom-0 w-screen h-[180px] blur-[4px] bg-gradient-to-b from-transparent to-black/70 " />
-        <div className='absolute bottom-[30px] pl-12'>
-          <h2 className="text-left font-bold text-[69px] text-white">{title}</h2>
-        </div>
-        <div className="absolute bottom-0 right-0 p-[42px]">
-          <div className="w-[250px] relative text-white">
-            <p className="text-[16px]">
-              {description}
-            </p>
-            {/* <span className="flex items-center gap-[5px]">
-              <a href={link} target="_blank" rel="noopener noreferrer" className="text-[12px] underline cursor-pointer">See more</a>
-              <svg width="22" height="12" viewBox="0 0 22 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M21.5303 6.53033C21.8232 6.23744 21.8232 5.76256 21.5303 5.46967L16.7574 0.696699C16.4645 0.403806 15.9896 0.403806 15.6967 0.696699C15.4038 0.989592 15.4038 1.46447 15.6967 1.75736L19.9393 6L15.6967 10.2426C15.4038 10.5355 15.4038 11.0104 15.6967 11.3033C15.9896 11.5962 16.4645 11.5962 16.7574 11.3033L21.5303 6.53033ZM0 6.75L21 6.75V5.25L0 5.25L0 6.75Z" fill="black"/>
-              </svg>
-            </span> */}
+        <div className="absolute bottom-0 w-screen h-[180px] bg-gradient-to-b from-transparent to-black/80 " />
+
+        {/* title */}
+          <div className='absolute bottom-[30px] pl-12'>
+            <h2 className="text-left font-bold text-[45px] md:text-[69px] lg:text-[69px] text-white">{title}</h2>
           </div>
-        </div>
+
+        {/* Description */}
+          <div className="absolute bottom-0 right-0 p-[42px]">
+            <div className="w-[250px] relative text-white">
+              <p className="text-[16px] lg:block md:block hidden ">
+                {description}
+              </p>
+              {/* <span className="flex items-center gap-[5px]">
+                <a href={link} target="_blank" rel="noopener noreferrer" className="text-[12px] underline cursor-pointer">See more</a>
+                <svg width="22" height="12" viewBox="0 0 22 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21.5303 6.53033C21.8232 6.23744 21.8232 5.76256 21.5303 5.46967L16.7574 0.696699C16.4645 0.403806 15.9896 0.403806 15.6967 0.696699C15.4038 0.989592 15.4038 1.46447 15.6967 1.75736L19.9393 6L15.6967 10.2426C15.4038 10.5355 15.4038 11.0104 15.6967 11.3033C15.9896 11.5962 16.4645 11.5962 16.7574 11.3033L21.5303 6.53033ZM0 6.75L21 6.75V5.25L0 5.25L0 6.75Z" fill="black"/>
+                </svg>
+              </span> */}
+            </div>
+          </div>
       </motion.div>
     </div>
   )

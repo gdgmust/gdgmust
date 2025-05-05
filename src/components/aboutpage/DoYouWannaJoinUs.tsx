@@ -49,7 +49,9 @@ export default function DoYouWannaJoinUs() {
           <Image
             src={discord}
             alt="Discord"
-            className="size-[280px] md:size-max lg:size-max"
+            width={512}
+            height={512}
+            className="w-[280px] md:w-auto lg:w-auto"
             draggable="false"
           />
         </div>

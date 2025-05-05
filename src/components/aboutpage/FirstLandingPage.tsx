@@ -25,7 +25,7 @@ export default function FirstLandingPage() {
                     style={{ objectFit: 'cover', width: '100%', height: '100%' }}
                 />
             </div>            
-            <div className="absolute bottom-[10px] left-[26px] md:left-[56px] lg:left-[56px]">
+            <div className="absolute bottom-[80px] md:bottom-[10px] lg:bottom-[10px] left-[26px] md:left-[56px] lg:left-[56px]">
                 <BlurText
                 text="About Us"
                 delay={450}
