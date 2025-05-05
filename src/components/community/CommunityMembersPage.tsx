@@ -13,14 +13,17 @@ import CommunityPagination from './CommunityPagination';
 interface Member {
   id: string;
   name?: string;         // Legacy field
-  nameEN?: string;       // English name
-  nameMN?: string;       // Mongolian name
+    nameEN?: string;       // English name
+    nameMN?: string;       // Mongolian name
+  surname?: string | boolean;    // Legacy field
+    surnameEN?: string | boolean;     // English surname
+    surnameMN?: string | boolean;     // Mongolian surname
   role: string;
   oldRole?: string;      // Previous role if applicable
-  image?: string;
+  image?: string | boolean; // Image URL or false if no image
   bio?: string;
-  bioEN?: string;        // English bio
-  bioMN?: string;        // Mongolian bio
+    bioEN?: string;        // English bio
+    bioMN?: string;        // Mongolian bio
   year?: string;
   sinceYear?: string;
   wasOnClub?: boolean;
@@ -46,18 +49,56 @@ function MemberCard({ member, index }: { member: Member, index: number }) {
   const locale = useLocale();
   const { activeYearFilter } = useCommunity();
   const currentYear = new Date().getFullYear().toString();
-  
-  // Get the appropriate name based on locale
-  const getMemberName = () => {
-    if (locale === 'mn' && member.nameMN) {
-      return member.nameMN;
-    } else if (member.nameEN) {
-      return member.nameEN;
+
+  if (member.image === false) {
+    member.image = '/images/community/members/default.png';
+  }
+
+  const getMemberFullName = () => {
+    if (locale === 'mn') {
+      // For Mongolian locale
+      if (member.surnameMN === false && member.nameMN) {
+        return [member.nameMN];
+      } else if (member.surnameMN && member.nameMN) {
+        return [member.surnameMN, ' ', member.nameMN];
+      }
+    } else {
+      // For English locale
+      if (member.surnameEN === false && member.nameEN) {
+        return [member.nameEN];
+      } else if (member.nameEN && member.surnameEN) {
+        return [member.nameEN, ' ', member.surnameEN];
+      }
     }
     
-    // Fallback to the generic name field if specific locale names aren't available
-    return member.name || '';
+    // Fallback to legacy fields
+    if (member.surname === false && member.name) {
+      return [member.name];
+    }
+    return [member.name || '', member.surname || ''];
   };
+  
+  // // Get the appropriate name based on locale
+  // const getMemberName = () => {
+  //   if (locale === 'mn' && member.nameMN) {
+  //     return member.nameMN;
+  //   } else if (member.nameEN) {
+  //     return member.nameEN;
+  //   }
+    
+  //   // Fallback to the generic name field if specific locale names aren't available
+  //   return member.name || '';
+  // };
+
+  // const getMemberSurname = () => {
+  //   if (locale === 'mn' && member.surnameMN) {
+  //     return member.surnameMN;
+  //   } else if (member.surnameEN) {
+  //     return member.surnameEN;
+  //   }
+
+  //   return member.surname || '';
+  // };
   
   // Get the appropriate bio based on locale
   const getMemberBio = () => {
@@ -132,8 +173,8 @@ function MemberCard({ member, index }: { member: Member, index: number }) {
         {member.image ? (
         <div className="relative h-[280px] w-full">
           <Image 
-          src={member.image} 
-          alt={getMemberName()}
+          src={member.image.toString()}  
+          alt={getMemberFullName().join(' ')}
           fill
           draggable="false"
           style={{objectFit: 'cover'}}
@@ -144,14 +185,14 @@ function MemberCard({ member, index }: { member: Member, index: number }) {
         <div className="bg-blue-100 h-64 flex items-center justify-center">
           <div className="bg-blue-200 rounded-full p-8">
           <span className="text-4xl font-bold text-blue-500">
-            {getMemberName().charAt(0)}
+            {getMemberFullName().join(' ').charAt(0)}
           </span>
           </div>
         </div>
         )}
       </div>
       <div className="px-6 pt-6 cursor-pointer flex-grow">
-        <h3 className="text-xl -mt-1 font-bold text-gray-900">{getMemberName()}</h3>
+        <h3 className="text-xl -mt-1 font-bold text-gray-900">{getMemberFullName()}</h3>
         
         {/* Display the role with appropriate color */}
         <div className='mt-[6px]'>

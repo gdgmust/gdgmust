@@ -13,7 +13,7 @@ import ScrollFloat from '@/components/utils/animations/ScrollFloat'
 import MainFrameCard from '@/components/aboutpage/MainFrameCard';
 import Cards from '@/components/aboutpage/Card';
 
-import BlurText from "@/components/aboutpage/BlurText";
+import StatusSection from "@/components/aboutpage/StatusSection";
 
 export default function AboutPage() {
   const t = useTranslations();
@@ -32,7 +32,7 @@ export default function AboutPage() {
           scrollEnd='bottom bottom-=60%'
           stagger={0.03}
         >
-          Who are we?
+          {t('HomePage.about.title')}
         </ScrollFloat>
       </div>
 
@@ -59,12 +59,32 @@ export default function AboutPage() {
           scrollEnd='bottom bottom-=60%'
           stagger={0.03}
         >
-          We do...
+          {t('HomePage.about.wedo')}
         </ScrollFloat>
       </div>
 
       <div className='w-full px-4'>
         <Cards />
+      </div>
+
+      <div className="flex items-center justify-center h-screen mx-auto max-w-[1600px] px-8 py-40">
+        <ScrollTextBlurReveal
+          baseOpacity={0}
+          enableBlur={true}
+          baseRotation={3}
+          blurStrength={6}
+        >
+          {t('HomePage.about.wedoanswer')}
+        </ScrollTextBlurReveal>
+      </div>
+
+
+      {/* <div className="flex items-center justify-center h-screen py-10 snap-start">
+      We're a club which assembled by 4 teams: Creative, Development, Member Engagement, and Outreach.
+      </div> */}
+      
+      <div className='flex items-center justify-center py-10'>
+        <StatusSection />
       </div>
 
       <motion.div>
