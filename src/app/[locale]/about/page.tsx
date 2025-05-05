@@ -47,7 +47,7 @@ export default function AboutPage() {
         </ScrollTextBlurReveal>
       </div>
 
-      <div className="flex items-center justify-center h-screen py-10">
+      <div className="flex items-center justify-center h-screen py-10 rotate-0">
         <TextParallax />
       </div>
 

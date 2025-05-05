@@ -66,12 +66,23 @@ export default function InfoOfCommunity() {
   const locale = useLocale();
   
   useEffect(() => {
-    // Filter for active leaders (role starts with "leaderof-" and activeStatus is true)
-    const leaders = communityData.filter(
-      (member: Member) => member.role.startsWith('leaderof-') && 
-                         member.activeStatus === true
-    );
-    setCurrentLeaders(leaders);
+    try {
+      // Type assertion to ensure TypeScript treats communityData as an array of Members
+      const typedData = communityData as Member[];
+      
+      // Filter for active leaders with proper null checks
+      const leaders = typedData.filter(member => {
+        return member && 
+          typeof member.role === 'string' && 
+          member.role.startsWith('leaderof-') && 
+          member.activeStatus === true;
+      });
+      
+      setCurrentLeaders(leaders);
+    } catch (error) {
+      console.error("Error processing community data:", error);
+      setCurrentLeaders([]);
+    }
   }, []);
   
   const nextLeader = () => {
