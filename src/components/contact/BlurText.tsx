@@ -3,6 +3,15 @@
 import { useRef, useEffect, useState } from 'react';
 import { useSprings, animated, SpringValue } from '@react-spring/web';
 
+import { Sarina } from 'next/font/google';
+
+const sarina = Sarina({
+    subsets: ['latin'],
+    weight: '400',
+    variable: '--font-sarina',
+    display: 'swap',
+});
+
 const AnimatedSpan = animated('span') as React.FC<React.HTMLAttributes<HTMLSpanElement>>;
 
 interface BlurTextProps {
@@ -92,7 +101,7 @@ const BlurText: React.FC<BlurTextProps> = ({
   );
 
   return (
-    <p ref={ref} className={`blur-text ${className} flex flex-wrap`}>
+    <p ref={ref} className={`blur-text ${sarina.className} ${className} flex flex-wrap`}>
       {springs.map((props, index) => (
         <AnimatedSpan
           key={index}

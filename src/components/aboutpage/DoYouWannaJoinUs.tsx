@@ -17,13 +17,13 @@ export default function StatusSection() {
     // baseAngle={0}
     // style={{ margin: "1rem auto" }}
     <div className="relative flex items-center justify-center w-full px-4 mb-20 sm:px-6 md:px-8 py-8 md:py-16">
-        <div className="relative w-full max-w-[1400px] min-h-[300px] md:h-[400px] lg:h-[500px] rounded-3xl overflow-hidden shadow-3xl shadow-black bg-gray-200/70 px-6 sm:px-10 md:px-32 py-6 sm:py-10">
+        <div className="relative w-full max-w-[1300px] min-h-[300px] md:h-[400px] lg:h-[500px] rounded-3xl overflow-hidden bg-gray-200/70 px-6 sm:px-10 md:px-32 py-6 sm:py-10 shadow-gray-800/10 shadow-[0px_30px_35px] backdrop-blur-md">
             {/* Gradient Glow */}
             <div className="absolute -bottom-[700px] left-1/2 w-[80%] h-[800px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-sky-500 to-blue-400 opacity-40 blur-[120px] pointer-events-none"></div>
 
             <div className="relative flex flex-col md:flex-row items-center justify-between h-full gap-8 md:gap-4">
                 <div className="flex flex-col gap-6">
-                    <h2 className="text-2xl sm:text-3xl md:text-[34px] font-bold mt-10 md:-mt-4 lg:-mt-4 flex justify-center md:justify-start lg:justify-start">{t('CommunityPage.JoinUs.title')}</h2>
+                    <h2 className="text-3xl sm:text-3xl md:text-[34px] font-bold text-center mt-10 md:-mt-4 lg:-mt-4 flex justify-center md:justify-start lg:justify-start">{t('CommunityPage.JoinUs.title')}</h2>
                     <p className="max-w-xs min-w-[280px] flex text-justify md:text-start lg:text-start justify-center md:justify-start lg:justify-start">{t('CommunityPage.JoinUs.description')}</p>
                       <div 
                       className='flex flex-col lg:flex-row justify-start gap-3 items-center md:items-start lg:items-start select-none mt-4 md:mt-3 lg:mt-2'
@@ -58,7 +58,7 @@ export default function StatusSection() {
                         alt="Discord"
                         width={512}
                         height={512}
-                        className="w-[200px] h-[200px] md:w-[280px] md:h-[280px] lg:w-[330px] lg:h-[330px] brightness-105"
+                        className="w-[250px] h-[250px] md:w-[300px] md:h-[30    0px] lg:w-[330px] lg:h-[330px] brightness-105"
                         draggable="false"
                     />
                 </div>

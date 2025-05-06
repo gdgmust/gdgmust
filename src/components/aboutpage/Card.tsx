@@ -87,7 +87,7 @@ const ProjectCard = ({i, title, description, src, link, color, progress, range, 
   );
  
   return (
-    <div ref={container} className="h-screen flex items-center justify-center sticky top-0">
+    <div ref={container} className="mt-[500px] h-screen flex items-center justify-center sticky top-0">
       <motion.div 
         style={{
           scale, 

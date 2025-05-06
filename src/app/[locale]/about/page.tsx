@@ -67,7 +67,7 @@ export default function AboutPage() {
         <Cards />
       </div>
 
-      <div className="flex items-center justify-center h-screen mx-auto max-w-[1600px] px-8 py-40">
+      <div className="flex items-center justify-center h-screen mx-auto max-w-[1600px] px-8 py-40 mt-16 mb-10">
         <ScrollTextBlurReveal
           baseOpacity={0}
           enableBlur={true}
@@ -82,12 +82,12 @@ export default function AboutPage() {
       {/* <div className="flex items-center justify-center h-screen py-10 snap-start">
       We're a club which assembled by 4 teams: Creative, Development, Member Engagement, and Outreach.
       </div> */}
-      
+{/*       
       <div className='flex items-center justify-center py-10'>
         <StatusSection />
-      </div>
+      </div> */}
 
-      <motion.div>
+      <motion.div className='mb-16'>
         <DoYouWannaJoinUs />
       </motion.div>
     </div>
