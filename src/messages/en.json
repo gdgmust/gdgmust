@@ -32,7 +32,14 @@
   },
 
   "AboutPage": {
-    "TextParallax": "Who are we?"
+    "TextParallax": "Who are we?",
+    "Card": {
+      "devfest": "DevFest is Google Developers’ biggest annual community-run event, where developers, students, and tech enthusiasts gather to learn, connect, and explore the latest in Google technologies like Android, Web, Cloud, and AI.",
+      "buildwithai": "Build with AI is a global initiative by Google Developers to help developers explore, learn, and create with the latest AI tools and technologies through hands-on events, workshops, and real-world projects.",
+      "workshop": "Workshop sessions offer hands-on learning experiences where participants can build real projects, deepen their skills, and explore new technologies guided by experts and peers.",
+      "hackathon": "Hackathon is a time-bound coding event where developers, designers, and innovators team up to build creative solutions, prototype ideas, and solve real-world problems—often in just 24 to 48 hours.",
+      "voluntary": "Voluntary participation means contributing your time and skills by choice, helping the community grow while gaining experience, learning, and networking—without formal obligation."
+    }
   },
 
   "NotFoundPage": {

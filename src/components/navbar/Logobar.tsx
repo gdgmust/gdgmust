@@ -10,20 +10,6 @@ const Logobar = () => {
       style={{ userSelect: 'none', cursor: 'pointer' }}  // Prevent text selection
       draggable="false"  // Make undraggable
     >
-      {/* GDG Logo */}
-      {/* <Link
-        href="/" 
-        className="flex items-center p-4 py-[12px] rounded-full bg-white outline-none outline-1 outline-black outline-offset-0"
-        draggable="false"  // Make link undraggable
-      >
-        <Image
-          src={logo}
-          alt="GDG"
-          width={40}
-          height={40.67}
-          draggable="false"  // Make image undraggable
-        />
-      </Link> */}
       <Link
           href="/"
           draggable="false"

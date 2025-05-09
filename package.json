@@ -20,7 +20,7 @@
     "@vercel/speed-insights": "^1.2.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.4.7",
+    "framer-motion": "^12.10.4",
     "gsap": "^3.12.7",
     "i18n": "^0.15.1",
     "lamina": "^1.1.23",
