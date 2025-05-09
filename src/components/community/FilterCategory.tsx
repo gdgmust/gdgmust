@@ -11,7 +11,8 @@ export default function FilterCategory() {
     // Predefined roles for translation keys
     const roles = [
         { key: 'all', translationKey: 'CommunityPage.filter.seeAll' },
-        { key: ['leaderof-gdg', 'leaderof-development', 'leaderof-creative', 'leaderof-engagement', 'leaderof-outreach', ], translationKey: 'CommunityPage.filter.1' },
+        // { key: ['leaderof-gdg', 'leaderof-development', 'leaderof-creative', 'leaderof-engagement', 'leaderof-outreach', ], translationKey: 'CommunityPage.filter.1' },
+        { key: ['leaderof-gdg'], translationKey: 'CommunityPage.filter.1' },
         { key: ['leaderof-development', 'memberof-development'], translationKey: 'CommunityPage.filter.2' },
         { key: ['leaderof-creative', 'memberof-creative'], translationKey: 'CommunityPage.filter.3' },
         { key: ['leaderof-engagement', 'memberof-engagement'], translationKey: 'CommunityPage.filter.4' },
