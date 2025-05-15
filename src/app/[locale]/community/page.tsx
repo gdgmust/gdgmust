@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
@@ -11,7 +11,7 @@ import SearchBar from '@/components/community/searchbar1';
 import { IoMenu } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
 
-import CommunityMembersPage from '@/components/community/CommunityMembersPage';
+import { MemberTiltCardsSection } from '@/components/community/CommunityMembersCards';
 import FilterCategory from '@/components/community/FilterCategory';
 import { CommunityProvider, useCommunity } from '@/components/community/context/CommunityContext';
 
@@ -119,9 +119,6 @@ export default function CommunityPage() {
         <div className="absolute w-full top-[116px] left-0 right-0 flex justify-center">
           <motion.div 
             className="select-none flex justify-center items-center"
-            // initial={{ opacity: 0, scale: 0.8 }}
-            // // animate={{ opacity: 1, scale: 1 }}
-            // transition={{ delay: 0.3, duration: 0.8 }}
           >
             <Image
               src={logo}
@@ -158,10 +155,8 @@ export default function CommunityPage() {
         {/* Role of Member FILTER */}
         <FilterCategory />
 
-        {/* Members */}
-        <div className="">
-          <CommunityMembersPage />
-        </div>
+        {/* Member cards with 3D tilt effect */}
+        <MemberTiltCardsSection />
       </div>
     </CommunityProvider>
   );
