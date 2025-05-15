@@ -77,7 +77,7 @@ export default function FirstLandingPage() {
                 speed={1.0}
             />
             <div className='absolute top-0 right-0 mr-[40px] mt-[40px] hidden md:block lg:block'>
-                <Image src="/images/qr.png" alt="qr" width={100} height={100} className='rounded-2xl w-[100px] h-[100px]' />
+                {/* <Image src="/images/qr.png" alt="qr" width={100} height={100} className='rounded-2xl w-[100px] h-[100px]' /> */}
             </div>
             <div className='absolute top-0 left-0 w-full h-full flex items-center justify-center'>
                 <Logo />
