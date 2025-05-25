@@ -50,7 +50,7 @@ import FirstVisitAnimation from '@/components/utils/animations/FirstVisitAnimati
        </head>
        <body>
          <NextIntlClientProvider messages={messages}>
-           <SmoothScroll />
+           {/* <SmoothScroll /> */}
            {/* <CustomCursor /> */}
            <ScrollToTop />
            <FirstVisitAnimation />

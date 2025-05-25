@@ -87,7 +87,7 @@ export default function Navbar() {
                             }}
                             disabled={index===4}
                             whileTap={{ scale: 0.95 }}
-                            whileHover={{ scale: 1.05 }}
+                            // whileHover={{ scale: 1.05 }}
                             transition={{ 
                                 type: "spring", 
                                 stiffness: 400, 
@@ -131,10 +131,10 @@ export default function Navbar() {
                                                     delay: 0.03 * subIndex,
                                                     duration: 0.2,
                                                 }}
-                                                whileHover={{ 
-                                                    // backgroundColor: "rgba(0,0,0,0.06)", 
-                                                    scale: 1.05 
-                                                }}
+                                                // whileHover={{ 
+                                                //     // backgroundColor: "rgba(0,0,0,0.06)", 
+                                                //     scale: 1.05 
+                                                // }}
                                                 whileTap={{ scale: 0.98 }}
                                             >
                                                 {sub.label}
