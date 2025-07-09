@@ -53,7 +53,7 @@ import FirstVisitAnimation from '@/components/utils/animations/FirstVisitAnimati
            {/* <SmoothScroll /> */}
            {/* <CustomCursor /> */}
            <ScrollToTop />
-           <FirstVisitAnimation />
+{/*            <FirstVisitAnimation /> */}
            <InAppBrowserDetector />
            <div className="flex flex-col min-h-screen">
              <div className="w-full fixed z-30">  
